@@ -1,0 +1,458 @@
+[
+  {
+    "id": "managers-001",
+    "name": "Chief Executives and Directors",
+    "employment": 45000,
+    "median_wage_weekly": 1850,
+    "growth_outlook": "stable",
+    "description": "Plan, organize, direct, coordinate and control general operations of organizations and departments. Make strategic decisions and oversee all business functions."
+  },
+  {
+    "id": "managers-002",
+    "name": "General Managers and Managers nec",
+    "employment": 78000,
+    "median_wage_weekly": 1720,
+    "growth_outlook": "moderate",
+    "description": "Oversee general management of companies, departments or major sections. Manage resources, staff, and operations."
+  },
+  {
+    "id": "managers-003",
+    "name": "Finance Managers",
+    "employment": 22000,
+    "median_wage_weekly": 1680,
+    "growth_outlook": "moderate",
+    "description": "Manage accounting, finance and investment functions. Create financial strategy and oversee budgets."
+  },
+  {
+    "id": "managers-004",
+    "name": "Human Resources Managers",
+    "employment": 15000,
+    "median_wage_weekly": 1620,
+    "growth_outlook": "strong",
+    "description": "Plan and coordinate human resources activities, recruitment, training, and employee relations."
+  },
+  {
+    "id": "managers-005",
+    "name": "Sales and Marketing Managers",
+    "employment": 28000,
+    "median_wage_weekly": 1650,
+    "growth_outlook": "moderate",
+    "description": "Plan and direct sales, marketing and related operations. Set strategies to maximize market share."
+  },
+  {
+    "id": "managers-006",
+    "name": "Operations and Project Managers",
+    "employment": 35000,
+    "median_wage_weekly": 1700,
+    "growth_outlook": "strong",
+    "description": "Plan and coordinate operational or project activities. Manage timelines, budgets, resources and teams."
+  },
+  {
+    "id": "professionals-001",
+    "name": "Software and ICT Professionals",
+    "employment": 52000,
+    "median_wage_weekly": 1850,
+    "growth_outlook": "strong",
+    "description": "Design, develop, test and maintain software systems, databases, networks. Manage IT infrastructure and cybersecurity."
+  },
+  {
+    "id": "professionals-002",
+    "name": "Accountants",
+    "employment": 35000,
+    "median_wage_weekly": 1680,
+    "growth_outlook": "moderate",
+    "description": "Prepare, examine and verify financial accounts and statements. Ensure legal and regulatory compliance."
+  },
+  {
+    "id": "professionals-003",
+    "name": "Engineers",
+    "employment": 48000,
+    "median_wage_weekly": 1750,
+    "growth_outlook": "strong",
+    "description": "Design, develop and improve engineering products, structures, processes and systems. Conduct technical analysis."
+  },
+  {
+    "id": "professionals-004",
+    "name": "Architects and Surveyors",
+    "employment": 12000,
+    "median_wage_weekly": 1720,
+    "growth_outlook": "moderate",
+    "description": "Design buildings and structures. Conduct land surveys and prepare architectural drawings."
+  },
+  {
+    "id": "professionals-005",
+    "name": "Scientists",
+    "employment": 18000,
+    "median_wage_weekly": 1680,
+    "growth_outlook": "moderate",
+    "description": "Conduct research in physical, biological or environmental sciences. Develop new technologies and processes."
+  },
+  {
+    "id": "professionals-006",
+    "name": "Teachers",
+    "employment": 88000,
+    "median_wage_weekly": 1550,
+    "growth_outlook": "moderate",
+    "description": "Teach students from early childhood through tertiary levels. Develop curriculum and assess learning outcomes."
+  },
+  {
+    "id": "professionals-007",
+    "name": "Nurses and Nursing Professionals",
+    "employment": 72000,
+    "median_wage_weekly": 1450,
+    "growth_outlook": "strong",
+    "description": "Provide nursing care and health services. Work in hospitals, clinics, community and aged care settings."
+  },
+  {
+    "id": "professionals-008",
+    "name": "Doctors and Physicians",
+    "employment": 15000,
+    "median_wage_weekly": 1950,
+    "growth_outlook": "strong",
+    "description": "Diagnose and treat diseases. Perform medical procedures and prescribe medications."
+  },
+  {
+    "id": "professionals-009",
+    "name": "Dentists",
+    "employment": 5500,
+    "median_wage_weekly": 1820,
+    "growth_outlook": "moderate",
+    "description": "Provide dental care and treatment. Diagnose and treat dental conditions and perform procedures."
+  },
+  {
+    "id": "professionals-010",
+    "name": "Lawyers and Legal Professionals",
+    "employment": 9000,
+    "median_wage_weekly": 1850,
+    "growth_outlook": "stable",
+    "description": "Provide legal advice, represent clients in court, draft legal documents and ensure regulatory compliance."
+  },
+  {
+    "id": "professionals-011",
+    "name": "Psychologists and Counsellors",
+    "employment": 8500,
+    "median_wage_weekly": 1520,
+    "growth_outlook": "strong",
+    "description": "Assess and treat mental health issues. Provide counselling and psychological support services."
+  },
+  {
+    "id": "professionals-012",
+    "name": "Marketing and Communications Specialists",
+    "employment": 28000,
+    "median_wage_weekly": 1580,
+    "growth_outlook": "strong",
+    "description": "Develop marketing strategies, content, and campaigns. Manage brand communications and public relations."
+  },
+  {
+    "id": "professionals-013",
+    "name": "Data Analysts and Scientists",
+    "employment": 18000,
+    "median_wage_weekly": 1750,
+    "growth_outlook": "strong",
+    "description": "Collect, analyze and interpret data. Create models and insights to inform business decisions."
+  },
+  {
+    "id": "professionals-014",
+    "name": "Designers and Creatives",
+    "employment": 22000,
+    "median_wage_weekly": 1480,
+    "growth_outlook": "moderate",
+    "description": "Create visual designs, user experiences, graphics and creative content for various media."
+  },
+  {
+    "id": "technicians-001",
+    "name": "Electrical Technicians",
+    "employment": 32000,
+    "median_wage_weekly": 1380,
+    "growth_outlook": "moderate",
+    "description": "Install, maintain and repair electrical systems and equipment in buildings and infrastructure."
+  },
+  {
+    "id": "technicians-002",
+    "name": "Mechanical Technicians",
+    "employment": 28000,
+    "median_wage_weekly": 1350,
+    "growth_outlook": "moderate",
+    "description": "Install, maintain and repair mechanical equipment, machinery and systems."
+  },
+  {
+    "id": "technicians-003",
+    "name": "IT Support Technicians",
+    "employment": 18000,
+    "median_wage_weekly": 1380,
+    "growth_outlook": "moderate",
+    "description": "Provide technical support for IT systems, networks, hardware and software. Troubleshoot issues and maintain systems."
+  },
+  {
+    "id": "technicians-004",
+    "name": "Motor Mechanics",
+    "employment": 22000,
+    "median_wage_weekly": 1330,
+    "growth_outlook": "stable",
+    "description": "Repair and maintain motor vehicles. Diagnose mechanical faults and replace components."
+  },
+  {
+    "id": "technicians-005",
+    "name": "Electricians",
+    "employment": 35000,
+    "median_wage_weekly": 1420,
+    "growth_outlook": "moderate",
+    "description": "Install, maintain and repair electrical systems. Ensure compliance with safety standards and regulations."
+  },
+  {
+    "id": "technicians-006",
+    "name": "Plumbers",
+    "employment": 28000,
+    "median_wage_weekly": 1400,
+    "growth_outlook": "stable",
+    "description": "Install, maintain and repair plumbing systems. Fix leaks and maintain water supply and drainage."
+  },
+  {
+    "id": "technicians-007",
+    "name": "Carpenters",
+    "employment": 32000,
+    "median_wage_weekly": 1390,
+    "growth_outlook": "moderate",
+    "description": "Construct, erect and repair wooden structures and components. Work on buildings, furniture and frameworks."
+  },
+  {
+    "id": "technicians-008",
+    "name": "Welders and Metalworkers",
+    "employment": 15000,
+    "median_wage_weekly": 1360,
+    "growth_outlook": "moderate",
+    "description": "Weld, bend, shape and form metal components. Construct and repair metal structures."
+  },
+  {
+    "id": "technicians-009",
+    "name": "HVAC Technicians",
+    "employment": 10000,
+    "median_wage_weekly": 1380,
+    "growth_outlook": "moderate",
+    "description": "Install, maintain and repair heating, ventilation and air conditioning systems."
+  },
+  {
+    "id": "technicians-010",
+    "name": "Builders and Site Supervisors",
+    "employment": 25000,
+    "median_wage_weekly": 1450,
+    "growth_outlook": "moderate",
+    "description": "Supervise construction sites and coordinate building operations. Ensure safety and quality standards."
+  },
+  {
+    "id": "community-001",
+    "name": "Childcare Workers",
+    "employment": 28000,
+    "median_wage_weekly": 1080,
+    "growth_outlook": "strong",
+    "description": "Provide care and education for young children in childcare settings. Supervise and facilitate development activities."
+  },
+  {
+    "id": "community-002",
+    "name": "Aged Care Workers",
+    "employment": 42000,
+    "median_wage_weekly": 1100,
+    "growth_outlook": "strong",
+    "description": "Provide care and support to elderly people in residential and community settings. Assist with daily activities."
+  },
+  {
+    "id": "community-003",
+    "name": "Social Workers",
+    "employment": 12000,
+    "median_wage_weekly": 1480,
+    "growth_outlook": "strong",
+    "description": "Support vulnerable people and families. Connect clients with social services and resources."
+  },
+  {
+    "id": "community-004",
+    "name": "Disability Support Workers",
+    "employment": 18000,
+    "median_wage_weekly": 1120,
+    "growth_outlook": "strong",
+    "description": "Provide support and care to people with disabilities. Assist with daily living and work activities."
+  },
+  {
+    "id": "community-005",
+    "name": "Security Guards",
+    "employment": 22000,
+    "median_wage_weekly": 1160,
+    "growth_outlook": "stable",
+    "description": "Protect people, property and premises. Monitor security, respond to incidents and enforce access control."
+  },
+  {
+    "id": "community-006",
+    "name": "Police Officers",
+    "employment": 12000,
+    "median_wage_weekly": 1580,
+    "growth_outlook": "stable",
+    "description": "Maintain law and order. Respond to incidents, investigate crimes and enforce regulations."
+  },
+  {
+    "id": "community-007",
+    "name": "Firefighters",
+    "employment": 4500,
+    "median_wage_weekly": 1620,
+    "growth_outlook": "stable",
+    "description": "Respond to fire and emergency incidents. Conduct rescue operations and prevent fires."
+  },
+  {
+    "id": "community-008",
+    "name": "Healthcare Assistants",
+    "employment": 35000,
+    "median_wage_weekly": 1200,
+    "growth_outlook": "strong",
+    "description": "Assist nurses and healthcare professionals. Support patients with daily activities and care tasks."
+  },
+  {
+    "id": "clerical-001",
+    "name": "Administrative Assistants",
+    "employment": 48000,
+    "median_wage_weekly": 1280,
+    "growth_outlook": "stable",
+    "description": "Provide administrative support, manage correspondence, handle scheduling and coordinate office operations."
+  },
+  {
+    "id": "clerical-002",
+    "name": "Secretaries and Receptionist",
+    "employment": 32000,
+    "median_wage_weekly": 1250,
+    "growth_outlook": "decline",
+    "description": "Greet visitors, answer phones, handle correspondence and maintain records."
+  },
+  {
+    "id": "clerical-003",
+    "name": "Bookkeepers",
+    "employment": 28000,
+    "median_wage_weekly": 1340,
+    "growth_outlook": "stable",
+    "description": "Record financial transactions, maintain accounts and ensure accurate financial records."
+  },
+  {
+    "id": "clerical-004",
+    "name": "Customer Service Officers",
+    "employment": 85000,
+    "median_wage_weekly": 1220,
+    "growth_outlook": "moderate",
+    "description": "Respond to customer inquiries, provide support and resolve issues via phone, email or chat."
+  },
+  {
+    "id": "clerical-005",
+    "name": "Data Entry Operators",
+    "employment": 18000,
+    "median_wage_weekly": 1200,
+    "growth_outlook": "decline",
+    "description": "Enter data into computer systems, maintain databases and ensure accuracy of records."
+  },
+  {
+    "id": "sales-001",
+    "name": "Retail Salespersons",
+    "employment": 95000,
+    "median_wage_weekly": 1050,
+    "growth_outlook": "decline",
+    "description": "Sell goods and assist customers in retail environments. Handle transactions and provide product information."
+  },
+  {
+    "id": "sales-002",
+    "name": "Sales Representatives",
+    "employment": 42000,
+    "median_wage_weekly": 1320,
+    "growth_outlook": "moderate",
+    "description": "Sell products and services to businesses or individuals. Develop customer relationships and meet targets."
+  },
+  {
+    "id": "sales-003",
+    "name": "Estate Agents and Real Estate Agents",
+    "employment": 15000,
+    "median_wage_weekly": 1420,
+    "growth_outlook": "moderate",
+    "description": "Market properties, conduct viewings, negotiate sales and manage property transactions."
+  },
+  {
+    "id": "labour-001",
+    "name": "General Labourers",
+    "employment": 65000,
+    "median_wage_weekly": 1080,
+    "growth_outlook": "stable",
+    "description": "Perform general manual labour tasks on construction sites, factories or other worksites. Handle materials and equipment."
+  },
+  {
+    "id": "labour-002",
+    "name": "Farm Workers",
+    "employment": 32000,
+    "median_wage_weekly": 1120,
+    "growth_outlook": "stable",
+    "description": "Perform manual work on farms. Plant and harvest crops, maintain equipment and care for livestock."
+  },
+  {
+    "id": "labour-003",
+    "name": "Cleaners",
+    "employment": 48000,
+    "median_wage_weekly": 1060,
+    "growth_outlook": "stable",
+    "description": "Clean residential and commercial premises. Maintain hygiene standards and dispose of waste."
+  },
+  {
+    "id": "labour-004",
+    "name": "Warehouse Workers",
+    "employment": 28000,
+    "median_wage_weekly": 1140,
+    "growth_outlook": "stable",
+    "description": "Store, retrieve and organize goods in warehouses. Pack and prepare shipments for dispatch."
+  },
+  {
+    "id": "labour-005",
+    "name": "Chefs and Cooks",
+    "employment": 25000,
+    "median_wage_weekly": 1180,
+    "growth_outlook": "stable",
+    "description": "Prepare meals and dishes in kitchens and restaurants. Plan menus and manage kitchen operations."
+  },
+  {
+    "id": "labour-006",
+    "name": "Machine Operators",
+    "employment": 18000,
+    "median_wage_weekly": 1220,
+    "growth_outlook": "decline",
+    "description": "Operate industrial machinery and equipment. Monitor production and maintain machinery."
+  },
+  {
+    "id": "labour-007",
+    "name": "Heavy Equipment Operators",
+    "employment": 15000,
+    "median_wage_weekly": 1280,
+    "growth_outlook": "stable",
+    "description": "Operate excavators, loaders, graders and other heavy equipment. Perform earthmoving and construction tasks."
+  },
+  {
+    "id": "labour-008",
+    "name": "Truck Drivers and Delivery Drivers",
+    "employment": 68000,
+    "median_wage_weekly": 1320,
+    "growth_outlook": "stable",
+    "description": "Transport goods and materials by vehicle. Load and unload cargo and maintain vehicle safety."
+  },
+  {
+    "id": "labour-009",
+    "name": "Bus Drivers and Taxi Drivers",
+    "employment": 28000,
+    "median_wage_weekly": 1240,
+    "growth_outlook": "decline",
+    "description": "Transport passengers by bus or taxi. Ensure passenger safety and maintain vehicle condition."
+  },
+  {
+    "id": "labour-010",
+    "name": "Gardeners and Landscapers",
+    "employment": 18000,
+    "median_wage_weekly": 1150,
+    "growth_outlook": "stable",
+    "description": "Design and maintain gardens and outdoor spaces. Plant vegetation, maintain lawns and manage landscapes."
+  },
+  {
+    "id": "labour-011",
+    "name": "Hospitality Workers",
+    "employment": 35000,
+    "median_wage_weekly": 1120,
+    "growth_outlook": "stable",
+    "description": "Work in hotels, restaurants and cafes. Provide customer service and maintain premises."
+  }
+]

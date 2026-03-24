@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NZ Job Market Visualiser</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #2d3748;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            padding: 40px;
+        }
+        
+        h1 {
+            color: #1a202c;
+            margin-bottom: 15px;
+            font-size: 2.8em;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+        
+        .subtitle {
+            color: #718096;
+            margin-bottom: 30px;
+            font-size: 1.15em;
+            font-weight: 400;
+            line-height: 1.6;
+        }
+        
+        .intro-text {
+            background: #f8f9fa;
+            border-left: 4px solid #667eea;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 6px;
+            color: #4a5568;
+            line-height: 1.8;
+            font-size: 0.95em;
+        }
+        
+        .intro-text p {
+            margin-bottom: 12px;
+        }
+        
+        .intro-text strong {
+            color: #2d3748;
+        }
+        
+        .intro-text ul {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+        
+        .intro-text li {
+            margin-bottom: 6px;
+        }
+        
+        .controls {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        
+        .control-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        label {
+            font-weight: 600;
+            color: #2d3748;
+            font-size: 0.95em;
+        }
+        
+        select, input {
+            padding: 10px 14px;
+            border: 1.5px solid #e2e8f0;
+            border-radius: 6px;
+            font-size: 0.95em;
+            background: white;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-family: inherit;
+        }
+        
+        select:hover, input:hover {
+            border-color: #cbd5e0;
+        }
+        
+        select:focus, input:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+        
+        .reset-btn {
+            padding: 10px 18px;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.95em;
+            transition: all 0.2s ease;
+        }
+        
+        .reset-btn:hover {
+            background: #5568d3;
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+        }
+        
+        .legend {
+            display: flex;
+            gap: 25px;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+            padding: 15px;
+            background: #f7fafc;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .legend-color {
+            width: 22px;
+            height: 22px;
+            border-radius: 4px;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            flex-shrink: 0;
+        }
+        
+        .legend-text {
+            font-size: 0.9em;
+            color: #4a5568;
+            font-weight: 500;
+        }
+        
+        #chart {
+            width: 100%;
+            min-height: 700px;
+            background: #fafbfc;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .node {
+            cursor: pointer;
+            stroke: white;
+            stroke-width: 2px;
+            transition: all 0.2s ease;
+        }
+        
+        .node:hover {
+            stroke: #2d3748;
+            stroke-width: 3px;
+            filter: brightness(1.08);
+        }
+        
+        .node-label {
+            pointer-events: none;
+            font-size: 12px;
+            font-weight: 500;
+            text-anchor: middle;
+            dominant-baseline: middle;
+            fill: white;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+            user-select: none;
+        }
+        
+        .tooltip {
+            position: absolute;
+            background: rgba(0, 0, 0, 0.92);
+            color: white;
+            padding: 16px;
+            border-radius: 8px;
+            font-size: 0.9em;
+            pointer-events: none;
+            z-index: 1000;
+            max-width: 300px;
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .tooltip-title {
+            font-weight: 700;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+            color: #ffffff;
+        }
+        
+        .tooltip-row {
+            display: flex;
+            justify-content: space-between;
+            margin: 5px 0;
+            gap: 15px;
+        }
+        
+        .tooltip-label {
+            font-weight: 600;
+            color: #cbd5e0;
+        }
+        
+        .tooltip-value {
+            color: #fff;
+            text-align: right;
+        }
+        
+        .tooltip-reasoning {
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px solid #555;
+            font-size: 0.85em;
+            line-height: 1.5;
+            color: #e2e8f0;
+        }
+        
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .stat-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.15);
+        }
+        
+        .stat-label {
+            font-size: 0.85em;
+            opacity: 0.9;
+            margin-bottom: 10px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .stat-value {
+            font-size: 2em;
+            font-weight: 700;
+        }
+        
+        .info {
+            background: #edf2f7;
+            border-left: 4px solid #667eea;
+            padding: 18px;
+            border-radius: 6px;
+            margin-top: 30px;
+            color: #2d3748;
+            line-height: 1.7;
+            font-size: 0.95em;
+        }
+        
+        .info strong {
+            color: #1a202c;
+        }
+        
+        .caveat {
+            background: #fffaf0;
+            border-left: 4px solid #ed8936;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 20px;
+            color: #744210;
+            line-height: 1.6;
+            font-size: 0.9em;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+            
+            .controls {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .control-group {
+                flex-direction: column;
+            }
+            
+            .control-group label {
+                margin-bottom: 5px;
+            }
+            
+            select, input {
+                width: 100%;
+            }
+            
+            .reset-btn {
+                width: 100%;
+            }
+            
+            #chart {
+                min-height: 500px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>NZ Job Market Visualiser</h1>
+        <p class="subtitle">Understanding occupations, employment, and AI exposure in New Zealand</p>
+        
+        <div class="intro-text">
+            <p><strong>What you're looking at:</strong> This is a research tool that visualizes occupations across the New Zealand job market. Each rectangle's area represents total employment in that occupation. The color indicates a metric you select—toggle between AI exposure, median wage, and growth outlook to explore different dimensions of the job market.</p>
+            <p><strong>Why this matters:</strong> AI is reshaping work. Some occupations face significant exposure to AI tools that can automate or augment key tasks. Others have natural barriers—physical presence, hands-on skill, real-time human judgment. This visualization helps you understand where your occupation sits.</p>
+            <p><strong>How to use it:</strong></p>
+            <ul>
+                <li><strong>Color by:</strong> Choose AI Exposure to see which jobs AI will reshape most.</li>
+                <li><strong>Sort by:</strong> Reorder by employment size, wage level, AI exposure, or alphabetically.</li>
+                <li><strong>Search:</strong> Find your occupation or explore a sector.</li>
+                <li><strong>Hover:</strong> See wages, employment numbers, and AI exposure reasoning.</li>
+            </ul>
+        </div>
+        
+        <div class="controls">
+            <div class="control-group">
+                <label for="colorBy">Color by:</label>
+                <select id="colorBy">
+                    <option value="ai_exposure">AI Exposure Score</option>
+                    <option value="growth">Growth Outlook</option>
+                    <option value="wage">Median Wage</option>
+                </select>
+            </div>
+            <div class="control-group">
+                <label for="sortBy">Sort by:</label>
+                <select id="sortBy">
+                    <option value="employment">Employment Size (largest first)</option>
+                    <option value="ai_exposure_high">AI Exposure (high to low)</option>
+                    <option value="wage_high">Wage (highest first)</option>
+                    <option value="alphabetical">Alphabetical (A-Z)</option>
+                </select>
+            </div>
+            <div class="control-group">
+                <label for="search">Search occupation:</label>
+                <input type="text" id="search" placeholder="e.g., Software, Nurse, Teacher...">
+            </div>
+            <button class="reset-btn" onclick="resetView()">Reset</button>
+        </div>
+        
+        <div class="legend">
+            <div class="legend-item">
+                <div class="legend-color" style="background: #2ecc71;"></div>
+                <div class="legend-text">Low Exposure (0-3)</div>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #f39c12;"></div>
+                <div class="legend-text">Moderate (4-5)</div>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #e67e22;"></div>
+                <div class="legend-text">High (6-7)</div>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #e74c3c;"></div>
+                <div class="legend-text">Very High (8-10)</div>
+            </div>
+        </div>
+        
+        <div id="chart"></div>
+        
+        <div class="stats">
+            <div class="stat-card">
+                <div class="stat-label">Total Employment</div>
+                <div class="stat-value" id="totalEmployment">-</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Average AI Exposure</div>
+                <div class="stat-value" id="avgExposure">-</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Occupations Analyzed</div>
+                <div class="stat-value" id="totalOccupations">-</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">High Risk (8-10)</div>
+                <div class="stat-value" id="highRisk">-</div>
+            </div>
+        </div>
+        
+        <div class="info">
+            <strong>How to read this visualization:</strong><br>
+            Each rectangle represents an occupation. The <strong>size</strong> shows employment. The <strong>color</strong> indicates your selected metric. 
+            <strong>Hover over any rectangle</strong> to see detailed employment figures, wages, AI exposure scores, and reasoning about how AI will affect that role. 
+        </div>
+        
+        <div class="caveat">
+            <strong>A note on AI Exposure scores:</strong> These are estimates based on occupation descriptions, not predictions of job disappearance. A high score means AI tools will reshape the work, not that jobs will vanish. Demand elasticity, new tools, and human choice matter enormously. Many high-exposure roles will transform and grow as workers become more productive with AI.
+        </div>
+    </div>
+    
+    <div class="tooltip" style="display: none;"></div>
+    
+    <script>
+        let data = [];
+        let allData = [];
+        let colorScheme = 'ai_exposure';
+        let sortBy = 'employment';
+        
+        // AI Exposure color scale
+        function getAIExposureColor(score) {
+            if (score <= 3) return '#2ecc71'; // Green - low
+            if (score <= 5) return '#f39c12'; // Orange - moderate
+            if (score <= 7) return '#e67e22'; // Orange-red - high
+            return '#e74c3c'; // Red - very high
+        }
+        
+        // Growth color scale
+        function getGrowthColor(outlook) {
+            const colors = {
+                'strong': '#27ae60',
+                'moderate': '#3498db',
+                'stable': '#95a5a6',
+                'decline': '#e74c3c'
+            };
+            return colors[outlook] || '#95a5a6';
+        }
+        
+        // Wage color scale (gradient from low to high)
+        function getWageColor(wage) {
+            if (wage < 1100) return '#e74c3c';
+            if (wage < 1300) return '#e67e22';
+            if (wage < 1600) return '#f39c12';
+            if (wage < 2000) return '#f1c40f';
+            return '#2ecc71';
+        }
+        
+        function getColor(d, scheme) {
+            if (scheme === 'ai_exposure') return getAIExposureColor(d.ai_exposure_score);
+            if (scheme === 'growth') return getGrowthColor(d.growth_outlook);
+            if (scheme === 'wage') return getWageColor(d.median_wage_weekly);
+            return '#95a5a6';
+        }
+        
+        function formatCurrency(val) {
+            return 'NZ$' + val.toLocaleString();
+        }
+        
+        function getSortedData(dataArray, sortType) {
+            const sorted = [...dataArray];
+            
+            if (sortType === 'employment') {
+                sorted.sort((a, b) => b.employment - a.employment);
+            } else if (sortType === 'ai_exposure_high') {
+                sorted.sort((a, b) => b.ai_exposure_score - a.ai_exposure_score);
+            } else if (sortType === 'wage_high') {
+                sorted.sort((a, b) => b.median_wage_weekly - a.median_wage_weekly);
+            } else if (sortType === 'alphabetical') {
+                sorted.sort((a, b) => a.name.localeCompare(b.name));
+            }
+            
+            return sorted;
+        }
+        
+        function updateStats() {
+            const visibleData = data.filter(d => !d.hidden);
+            if (visibleData.length === 0) {
+                document.getElementById('totalEmployment').textContent = '0';
+                document.getElementById('avgExposure').textContent = '0/10';
+                document.getElementById('totalOccupations').textContent = '0';
+                document.getElementById('highRisk').textContent = '0';
+                return;
+            }
+            
+            const totalEmp = visibleData.reduce((sum, d) => sum + d.employment, 0);
+            const avgExp = visibleData.reduce((sum, d) => sum + d.ai_exposure_score, 0) / visibleData.length;
+            const highRiskCount = visibleData.filter(d => d.ai_exposure_score >= 8).length;
+            
+            document.getElementById('totalEmployment').textContent = totalEmp.toLocaleString();
+            document.getElementById('avgExposure').textContent = avgExp.toFixed(1) + '/10';
+            document.getElementById('totalOccupations').textContent = visibleData.length;
+            document.getElementById('highRisk').textContent = highRiskCount;
+        }
+        
+        function drawChart() {
+            const margin = { top: 0, right: 0, bottom: 0, left: 0 };
+            const width = document.getElementById('chart').clientWidth - margin.left - margin.right;
+            const height = 700 - margin.top - margin.bottom;
+            
+            // Clear previous chart
+            d3.select('#chart').selectAll('*').remove();
+            
+            const svg = d3.select('#chart')
+                .append('svg')
+                .attr('width', width + margin.left + margin.right)
+                .attr('height', height + margin.top + margin.bottom)
+                .append('g')
+                .attr('transform', `translate(${margin.left},${margin.top})`);
+            
+            // Filter and sort visible data
+            let visibleData = data.filter(d => !d.hidden);
+            visibleData = getSortedData(visibleData, sortBy);
+            
+            // Create hierarchy
+            const root = d3.hierarchy({children: visibleData})
+                .sum(d => d.employment)
+                .sort((a, b) => b.value - a.value);
+            
+            // Create treemap
+            const treemap = d3.treemap()
+                .size([width, height])
+                .paddingLeft(2)
+                .paddingRight(2)
+                .paddingTop(2)
+                .paddingBottom(2);
+            
+            treemap(root);
+            
+            // Draw rectangles
+            const nodes = svg.selectAll('.node')
+                .data(root.leaves())
+                .enter()
+                .append('g')
+                .attr('class', 'node')
+                .attr('transform', d => `translate(${d.x0},${d.y0})`);
+            
+            nodes.append('rect')
+                .attr('width', d => d.x1 - d.x0)
+                .attr('height', d => d.y1 - d.y0)
+                .attr('fill', d => getColor(d.data, colorScheme))
+                .attr('stroke', 'white')
+                .attr('stroke-width', 2)
+                .on('mouseenter', function(event, d) {
+                    showTooltip(event, d.data);
+                    d3.select(this.parentNode).select('rect')
+                        .transition()
+                        .duration(150)
+                        .attr('stroke', '#2d3748')
+                        .attr('stroke-width', 3);
+                })
+                .on('mouseleave', function(event, d) {
+                    hideTooltip();
+                    d3.select(this.parentNode).select('rect')
+                        .transition()
+                        .duration(150)
+                        .attr('stroke', 'white')
+                        .attr('stroke-width', 2);
+                });
+            
+            // Add labels with better sizing
+            nodes.append('text')
+                .attr('class', 'node-label')
+                .attr('x', d => (d.x1 - d.x0) / 2)
+                .attr('y', d => (d.y1 - d.y0) / 2)
+                .style('font-size', d => {
+                    const area = (d.x1 - d.x0) * (d.y1 - d.y0);
+                    if (area < 1500) return '10px';
+                    if (area < 4000) return '11px';
+                    if (area < 8000) return '12px';
+                    return '13px';
+                })
+                .text(d => {
+                    const width = d.x1 - d.x0;
+                    const height = d.y1 - d.y0;
+                    if (width < 80 || height < 40) return '';
+                    return d.data.name.split(' ').slice(0, 3).join('\n');
+                });
+            
+            updateStats();
+        }
+        
+        function showTooltip(event, d) {
+            const tooltip = d3.select('.tooltip');
+            const riskLevel = d.ai_exposure_score <= 3 ? 'Low' :
+                            d.ai_exposure_score <= 5 ? 'Moderate' :
+                            d.ai_exposure_score <= 7 ? 'High' : 'Very High';
+            
+            tooltip.html(`
+                <div class="tooltip-title">${d.name}</div>
+                <div class="tooltip-row">
+                    <span class="tooltip-label">Employment:</span>
+                    <span class="tooltip-value">${d.employment.toLocaleString()} people</span>
+                </div>
+                <div class="tooltip-row">
+                    <span class="tooltip-label">Median Wage:</span>
+                    <span class="tooltip-value">${formatCurrency(d.median_wage_weekly)}/week</span>
+                </div>
+                <div class="tooltip-row">
+                    <span class="tooltip-label">AI Exposure:</span>
+                    <span class="tooltip-value">${d.ai_exposure_score}/10 (${riskLevel})</span>
+                </div>
+                <div class="tooltip-row">
+                    <span class="tooltip-label">Growth Outlook:</span>
+                    <span class="tooltip-value">${d.growth_outlook}</span>
+                </div>
+                <div class="tooltip-reasoning">
+                    <strong>Why this score:</strong> ${d.ai_exposure_reasoning}
+                </div>
+            `)
+            .style('display', 'block')
+            .style('left', (event.pageX + 10) + 'px')
+            .style('top', (event.pageY + 10) + 'px');
+        }
+        
+        function hideTooltip() {
+            d3.select('.tooltip').style('display', 'none');
+        }
+        
+        document.addEventListener('mousemove', function(event) {
+            if (d3.select('.tooltip').style('display') === 'block') {
+                d3.select('.tooltip')
+                    .style('left', (event.pageX + 10) + 'px')
+                    .style('top', (event.pageY + 10) + 'px');
+            }
+        });
+        
+        document.getElementById('colorBy').addEventListener('change', function(e) {
+            colorScheme = e.target.value;
+            drawChart();
+        });
+        
+        document.getElementById('sortBy').addEventListener('change', function(e) {
+            sortBy = e.target.value;
+            drawChart();
+        });
+        
+        document.getElementById('search').addEventListener('input', function(e) {
+            const query = e.target.value.toLowerCase();
+            data.forEach(d => {
+                d.hidden = query && !d.name.toLowerCase().includes(query);
+            });
+            drawChart();
+        });
+        
+        function resetView() {
+            document.getElementById('search').value = '';
+            document.getElementById('colorBy').value = 'ai_exposure';
+            document.getElementById('sortBy').value = 'employment';
+            colorScheme = 'ai_exposure';
+            sortBy = 'employment';
+            data.forEach(d => d.hidden = false);
+            drawChart();
+        }
+        
+        // Load and render data
+        fetch('data.json')
+            .then(response => response.json())
+            .then(jsonData => {
+                allData = jsonData;
+                data = JSON.parse(JSON.stringify(jsonData)); // deep copy
+                drawChart();
+                window.addEventListener('resize', drawChart);
+            })
+            .catch(error => {
+                console.error('Error loading data:', error);
+                document.getElementById('chart').innerHTML = '<p style="padding: 20px; color: #e74c3c;">Error loading data. Please check data.json exists.</p>';
+            });
+    </script>
+</body>
+</html>
