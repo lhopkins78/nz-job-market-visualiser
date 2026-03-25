@@ -393,8 +393,8 @@
             <div class="toolbar-group">
                 <label for="sortBy">Sort by:</label>
                 <select id="sortBy">
-                    <option value="employment">Employment Size</option>
                     <option value="ai_exposure_desc">AI Exposure (High→Low)</option>
+                    <option value="employment">Employment Size</option>
                     <option value="wage_desc">Wage (High→Low)</option>
                     <option value="alphabetical">Alphabetical</option>
                 </select>
@@ -442,7 +442,7 @@
     <script>
         let allData = [];
         let filteredData = [];
-        let currentSort = 'employment';
+        let currentSort = 'ai_exposure_desc';
         let currentColor = 'ai_exposure';
         let searchQuery = '';
         
@@ -593,9 +593,9 @@
         function resetView() {
             document.getElementById('search').value = '';
             document.getElementById('colorBy').value = 'ai_exposure';
-            document.getElementById('sortBy').value = 'employment';
+            document.getElementById('sortBy').value = 'ai_exposure_desc';
             currentColor = 'ai_exposure';
-            currentSort = 'employment';
+            currentSort = 'ai_exposure_desc';
             searchQuery = '';
             draw();
         }
