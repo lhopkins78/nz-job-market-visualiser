@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate, max-age=0">
     <title>NZ Job Market: Where AI Will Reshape Work</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <script src="https://d3js.org/d3.v7.min.js"></script>
@@ -14,26 +14,18 @@
             box-sizing: border-box;
         }
         
-        html {
-            scroll-behavior: smooth;
-        }
-        
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
             background: #ffffff;
-            min-height: 100vh;
-            padding: 0;
             color: #1a202c;
             line-height: 1.6;
         }
         
-        /* Header with accent border */
         .header {
             background: #ffffff;
             border-top: 4px solid #1f8b4f;
-            padding: 50px 20px 40px 20px;
-            margin-bottom: 0;
             border-bottom: 1px solid #e5e7eb;
+            padding: 50px 20px 40px 20px;
         }
         
         .header-content {
@@ -65,8 +57,6 @@
             font-size: 1.05em;
             line-height: 1.7;
             max-width: 800px;
-            margin-bottom: 0;
-            font-weight: 400;
         }
         
         .container {
@@ -75,7 +65,6 @@
             padding: 40px 20px;
         }
         
-        /* How-to explainer */
         .explainer {
             background: #f9fafb;
             border: 1px solid #e5e7eb;
@@ -95,7 +84,7 @@
             font-weight: 600;
         }
         
-        .explainer p {
+        .explainer p, .explainer li {
             color: #4b5563;
             font-size: 0.95em;
             line-height: 1.7;
@@ -107,13 +96,6 @@
             margin-left: 0;
         }
         
-        .explainer li {
-            color: #4b5563;
-            font-size: 0.95em;
-            line-height: 1.7;
-            margin-bottom: 10px;
-        }
-        
         .explainer li:before {
             content: "→ ";
             color: #1f8b4f;
@@ -121,7 +103,6 @@
             margin-right: 8px;
         }
         
-        /* Metrics row */
         .metrics {
             display: flex;
             gap: 40px;
@@ -130,7 +111,6 @@
             border-top: 1px solid #e5e7eb;
             border-bottom: 1px solid #e5e7eb;
             flex-wrap: wrap;
-            align-items: center;
         }
         
         .metric {
@@ -148,13 +128,12 @@
         }
         
         .metric-value {
-            font-family: 'SF Mono', 'Roboto Mono', monospace;
+            font-family: monospace;
             font-size: 1.5em;
             font-weight: 700;
             color: #1a202c;
         }
         
-        /* Toolbar */
         .toolbar {
             display: flex;
             gap: 16px;
@@ -195,15 +174,7 @@
             border-radius: 6px;
             font-size: 0.9em;
             background: white;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            font-family: inherit;
             color: #1a202c;
-        }
-        
-        select:hover, input:hover {
-            border-color: #9ca3af;
-            background: #ffffff;
         }
         
         select:focus, input:focus {
@@ -212,7 +183,6 @@
             box-shadow: 0 0 0 3px rgba(31, 139, 79, 0.1);
         }
         
-        /* Buttons */
         .btn {
             padding: 10px 16px;
             background: white;
@@ -222,30 +192,12 @@
             cursor: pointer;
             font-weight: 600;
             font-size: 0.9em;
-            transition: all 0.2s ease;
-            font-family: inherit;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
         }
         
         .btn:hover {
             background: #f3f4f6;
-            border-color: #9ca3af;
         }
         
-        .btn.primary {
-            background: #1a202c;
-            color: white;
-            border-color: #1a202c;
-        }
-        
-        .btn.primary:hover {
-            background: #2d3748;
-            border-color: #2d3748;
-        }
-        
-        /* Chart container */
         .chart-wrapper {
             position: relative;
             background: white;
@@ -262,13 +214,11 @@
             display: block;
         }
         
-        /* Legend - positioned absolutely inside chart */
         .chart-legend {
             position: absolute;
             top: 20px;
             right: 20px;
             background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(8px);
             border: 1px solid #e5e7eb;
             border-radius: 8px;
             padding: 16px 18px;
@@ -302,7 +252,6 @@
             height: 18px;
             border-radius: 4px;
             border: 1px solid rgba(0, 0, 0, 0.1);
-            flex-shrink: 0;
         }
         
         .legend-text {
@@ -311,18 +260,19 @@
             font-weight: 500;
         }
         
-        /* Node styling */
         .node {
             cursor: pointer;
+        }
+        
+        .node rect {
             stroke: white;
             stroke-width: 2px;
             transition: all 0.15s ease;
         }
         
-        .node:hover {
+        .node:hover rect {
             stroke: #1a202c;
             stroke-width: 3px;
-            filter: brightness(0.95);
         }
         
         .node-label {
@@ -333,10 +283,8 @@
             dominant-baseline: middle;
             fill: white;
             text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-            user-select: none;
         }
         
-        /* Tooltip - light theme */
         .tooltip {
             position: absolute;
             background: white;
@@ -351,66 +299,11 @@
             border: 1px solid #e5e7eb;
         }
         
-        .tooltip-header {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 14px;
-            padding-bottom: 12px;
-            border-bottom: 1px solid #e5e7eb;
-        }
-        
-        .tooltip-swatch {
-            width: 24px;
-            height: 24px;
-            border-radius: 4px;
-            border: 1px solid rgba(0, 0, 0, 0.1);
-            flex-shrink: 0;
-        }
-        
-        .tooltip-title {
-            font-weight: 700;
-            font-size: 1.1em;
-            color: #1a202c;
-        }
-        
-        .tooltip-row {
-            display: flex;
-            justify-content: space-between;
-            margin: 10px 0;
-            gap: 12px;
-        }
-        
-        .tooltip-label {
-            font-weight: 600;
-            color: #6b7280;
-            font-size: 0.85em;
-        }
-        
-        .tooltip-value {
-            color: #1a202c;
-            text-align: right;
-            font-weight: 600;
-            font-family: 'SF Mono', 'Roboto Mono', monospace;
-        }
-        
-        .tooltip-reasoning {
-            margin-top: 12px;
-            padding-top: 12px;
-            border-top: 1px solid #e5e7eb;
-            font-size: 0.85em;
-            line-height: 1.6;
-            color: #4b5563;
-            font-style: italic;
-        }
-        
-        /* Footer sections */
         .methodology {
             background: #f9fafb;
             border: 1px solid #e5e7eb;
             border-radius: 8px;
             padding: 32px;
-            margin-bottom: 30px;
         }
         
         .methodology h3 {
@@ -428,19 +321,9 @@
             margin-bottom: 12px;
         }
         
-        .methodology em {
-            color: #6b7280;
-        }
-        
-        /* Responsive */
         @media (max-width: 900px) {
             .explainer {
                 grid-template-columns: 1fr;
-                gap: 24px;
-            }
-            
-            h1 {
-                font-size: 2em;
             }
             
             .toolbar {
@@ -448,103 +331,37 @@
                 align-items: stretch;
             }
             
-            .toolbar-group {
-                flex-direction: column;
-            }
-            
-            .toolbar-spacer {
-                display: none;
-            }
-            
-            .toolbar-secondary {
-                flex-direction: column;
-            }
-            
             select, input, .btn {
                 width: 100%;
-                text-align: left;
-            }
-            
-            #chart {
-                min-height: 500px;
-            }
-            
-            .metrics {
-                flex-direction: column;
-                gap: 16px;
-            }
-            
-            .chart-legend {
-                position: static;
-                margin-top: -10px;
-                margin-left: -1px;
-                margin-right: -1px;
-                border-left: none;
-                border-right: none;
-                border-top: none;
-                border-radius: 0;
-                background: #f9fafb;
-            }
-        }
-        
-        @media (max-width: 640px) {
-            .header {
-                padding: 30px 16px 25px 16px;
-            }
-            
-            h1 {
-                font-size: 1.6em;
-            }
-            
-            .lede {
-                font-size: 0.95em;
-            }
-            
-            .container {
-                padding: 20px 16px;
-            }
-            
-            .explainer {
-                padding: 20px;
-            }
-            
-            .metric {
-                flex-direction: column;
-                gap: 4px;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
     <div class="header">
         <div class="header-content">
             <div class="byline">NZ Labour Market Analysis</div>
             <h1>Where AI Will Reshape Work</h1>
-            <p class="lede">Understanding occupations at risk of automation in the New Zealand economy. Updated March 2026. Based on Stats NZ Labour Market Statistics.</p>
+            <p class="lede">Understanding occupations at risk of automation in the New Zealand economy. Updated March 2026.</p>
         </div>
     </div>
     
-    <!-- Main content -->
     <div class="container">
-        <!-- Explainer -->
         <div class="explainer">
             <div>
                 <h3>What You're Looking At</h3>
-                <p>This is a research tool that visualizes occupations across the New Zealand job market. Each rectangle represents one occupation. The <strong>size</strong> of each rectangle shows how many people work in that role. The <strong>color</strong> shows the metric you select—toggle between AI exposure, median wage, and growth outlook to explore different dimensions.</p>
+                <p>Each rectangle represents one occupation. The <strong>size</strong> shows how many people work in that role. The <strong>color</strong> shows your selected metric—toggle between AI exposure, wage, and growth outlook.</p>
             </div>
             <div>
                 <h3>How to Use It</h3>
                 <ul>
-                    <li><strong>Hover</strong> over any rectangle to see wages, employment numbers, and AI exposure reasoning.</li>
-                    <li><strong>Search</strong> to find your occupation or explore a sector.</li>
-                    <li><strong>Color by</strong> AI Exposure to see which jobs AI will reshape most.</li>
-                    <li><strong>Sort</strong> by employment size, wage, or AI exposure.</li>
+                    <li><strong>Hover</strong> to see detailed data.</li>
+                    <li><strong>Sort</strong> by employment, AI exposure, or wage.</li>
+                    <li><strong>Search</strong> to find your occupation.</li>
                 </ul>
             </div>
         </div>
         
-        <!-- Metrics -->
         <div class="metrics">
             <div class="metric">
                 <div class="metric-label">Total Employment</div>
@@ -564,36 +381,34 @@
             </div>
         </div>
         
-        <!-- Toolbar -->
         <div class="toolbar">
             <div class="toolbar-group">
                 <label for="colorBy">Color by:</label>
                 <select id="colorBy">
-                    <option value="ai_exposure">AI Exposure Score</option>
-                    <option value="growth">Growth Outlook</option>
+                    <option value="ai_exposure">AI Exposure</option>
                     <option value="wage">Median Wage</option>
+                    <option value="growth">Growth Outlook</option>
                 </select>
             </div>
             <div class="toolbar-group">
                 <label for="sortBy">Sort by:</label>
                 <select id="sortBy">
                     <option value="employment">Employment Size</option>
-                    <option value="ai_exposure_high">AI Exposure (High–Low)</option>
-                    <option value="wage_high">Wage (Highest First)</option>
+                    <option value="ai_exposure_desc">AI Exposure (High→Low)</option>
+                    <option value="wage_desc">Wage (High→Low)</option>
                     <option value="alphabetical">Alphabetical</option>
                 </select>
             </div>
             <div class="toolbar-spacer"></div>
             <div class="toolbar-secondary">
                 <input type="text" id="search" placeholder="Search occupation...">
-                <button class="btn" onclick="resetView()">↻ Reset</button>
+                <button class="btn" onclick="resetView()">Reset</button>
             </div>
         </div>
         
-        <!-- Chart -->
         <div class="chart-wrapper">
             <div class="chart-legend">
-                <div class="legend-title">AI Exposure</div>
+                <div class="legend-title">AI Exposure Risk</div>
                 <div class="legend-items">
                     <div class="legend-item">
                         <div class="legend-color" style="background: #8b9d8a;"></div>
@@ -613,273 +428,189 @@
                     </div>
                 </div>
             </div>
-            <div id="chart"></div>
+            <svg id="chart"></svg>
         </div>
         
-        <!-- Methodology -->
         <div class="methodology">
-            <h3>About the Data</h3>
-            <p><strong>Employment figures:</strong> Stats NZ Labour Market Statistics (December 2024 Quarter). <strong>Wages:</strong> Median weekly earnings by occupation. <strong>Growth outlook:</strong> Strong, moderate, stable, or declining demand.</p>
-            <p><strong>AI exposure scores:</strong> Estimated using Claude 3.5 Sonnet, adapted from <em>Andrej Karpathy's Jobs project</em>. Based on how digital, routine, and automatable each role's core tasks are. <em>This is not a prediction of job disappearance</em>—it shows where AI tools will reshape work. Demand elasticity, new tools, and human choice matter enormously.</p>
+            <h3>About This Data</h3>
+            <p><strong>Source:</strong> Stats NZ Labour Market Statistics (Dec 2024). <strong>AI scores:</strong> Based on task automation risk using Claude 3.5 Sonnet. <strong>Note:</strong> High scores indicate where AI will reshape work, not where jobs disappear.</p>
         </div>
     </div>
     
-    <!-- Tooltip -->
     <div class="tooltip" style="display: none;"></div>
     
     <script>
-        let data = [];
-        let colorScheme = 'ai_exposure';
-        let sortBy = 'employment';
+        let allData = [];
+        let filteredData = [];
+        let currentSort = 'employment';
+        let currentColor = 'ai_exposure';
+        let searchQuery = '';
         
-        // Modern muted palette - sophisticated, editorial
-        // AI Exposure color scale
-        function getAIExposureColor(score) {
-            if (score <= 3) return '#8b9d8a'; // Sage green - low
-            if (score <= 5) return '#a39779'; // Warm beige - moderate
-            if (score <= 7) return '#b8824d'; // Rust - high
-            return '#7d3e39'; // Deep burgundy - very high
+        // MODERN MUTED PALETTE
+        function getColorForAI(score) {
+            if (score <= 3) return '#8b9d8a';      // Sage green
+            if (score <= 5) return '#a39779';      // Warm beige
+            if (score <= 7) return '#b8824d';      // Rust
+            return '#7d3e39';                      // Deep burgundy
         }
         
-        // Growth color scale
-        function getGrowthColor(outlook) {
-            const colors = {
-                'strong': '#7a9d7f',
-                'moderate': '#8a97a1',
-                'stable': '#9b9b8f',
-                'decline': '#7d4a47'
-            };
-            return colors[outlook] || '#9b9b8f';
-        }
-        
-        // Wage color scale
-        function getWageColor(wage) {
-            if (wage < 1100) return '#7d4a47';
+        function getColorForWage(wage) {
+            if (wage < 1100) return '#7d3e39';
             if (wage < 1300) return '#b8824d';
             if (wage < 1600) return '#a39779';
             if (wage < 2000) return '#8b9d8a';
             return '#7a9d7f';
         }
         
-        function getColor(d, scheme) {
-            if (scheme === 'ai_exposure') return getAIExposureColor(d.ai_exposure_score);
-            if (scheme === 'growth') return getGrowthColor(d.growth_outlook);
-            if (scheme === 'wage') return getWageColor(d.median_wage_weekly);
-            return '#9ca3af';
+        function getColorForGrowth(outlook) {
+            const map = { 'strong': '#7a9d7f', 'moderate': '#8a97a1', 'stable': '#9b9b8f', 'decline': '#7d4a47' };
+            return map[outlook] || '#9b9b8f';
         }
         
-        function formatCurrency(val) {
-            return 'NZ$' + val.toLocaleString();
+        function getColor(d) {
+            if (currentColor === 'ai_exposure') return getColorForAI(d.ai_exposure_score);
+            if (currentColor === 'wage') return getColorForWage(d.median_wage_weekly);
+            if (currentColor === 'growth') return getColorForGrowth(d.growth_outlook);
+            return '#999';
         }
         
-        function getSortedData(dataArray, sortType) {
-            const sorted = [...dataArray];
+        function applyFilters() {
+            filteredData = allData.filter(d => {
+                if (!searchQuery) return true;
+                return d.name.toLowerCase().includes(searchQuery.toLowerCase());
+            });
             
-            if (sortType === 'employment') {
-                sorted.sort((a, b) => b.employment - a.employment);
-            } else if (sortType === 'ai_exposure_high') {
-                sorted.sort((a, b) => b.ai_exposure_score - a.ai_exposure_score);
-            } else if (sortType === 'wage_high') {
-                sorted.sort((a, b) => b.median_wage_weekly - a.median_wage_weekly);
-            } else if (sortType === 'alphabetical') {
-                sorted.sort((a, b) => a.name.localeCompare(b.name));
+            // SORT
+            if (currentSort === 'employment') {
+                filteredData.sort((a, b) => b.employment - a.employment);
+            } else if (currentSort === 'ai_exposure_desc') {
+                filteredData.sort((a, b) => b.ai_exposure_score - a.ai_exposure_score);
+            } else if (currentSort === 'wage_desc') {
+                filteredData.sort((a, b) => b.median_wage_weekly - a.median_wage_weekly);
+            } else if (currentSort === 'alphabetical') {
+                filteredData.sort((a, b) => a.name.localeCompare(b.name));
             }
             
-            return sorted;
+            console.log('Sort:', currentSort, '| Filtered:', filteredData.length, '| First:', filteredData[0]?.name);
         }
         
-        function updateStats() {
-            const visibleData = data.filter(d => !d.hidden);
-            if (visibleData.length === 0) {
-                document.getElementById('totalEmployment').textContent = '—';
-                document.getElementById('avgExposure').textContent = '—';
-                document.getElementById('totalOccupations').textContent = '—';
-                document.getElementById('highRisk').textContent = '—';
-                return;
-            }
+        function draw() {
+            applyFilters();
             
-            const totalEmp = visibleData.reduce((sum, d) => sum + d.employment, 0);
-            const avgExp = visibleData.reduce((sum, d) => sum + d.ai_exposure_score, 0) / visibleData.length;
-            const highRiskCount = visibleData.filter(d => d.ai_exposure_score >= 8).length;
+            const width = document.querySelector('.chart-wrapper').clientWidth;
+            const height = 700;
             
-            document.getElementById('totalEmployment').textContent = totalEmp.toLocaleString();
-            document.getElementById('avgExposure').textContent = avgExp.toFixed(1) + '/10';
-            document.getElementById('totalOccupations').textContent = visibleData.length;
-            document.getElementById('highRisk').textContent = highRiskCount;
-        }
-        
-        function drawChart() {
-            const chartEl = document.getElementById('chart');
-            const margin = { top: 0, right: 0, bottom: 0, left: 0 };
-            const width = chartEl.parentElement.clientWidth - margin.left - margin.right;
-            const height = 700 - margin.top - margin.bottom;
-            
-            // Clear previous chart
-            d3.select('#chart').selectAll('svg').remove();
+            d3.select('#chart').selectAll('*').remove();
             
             const svg = d3.select('#chart')
-                .append('svg')
-                .attr('width', width + margin.left + margin.right)
-                .attr('height', height + margin.top + margin.bottom)
-                .append('g')
-                .attr('transform', `translate(${margin.left},${margin.top})`);
+                .attr('width', width)
+                .attr('height', height);
             
-            // Filter visible data first
-            let visibleData = data.filter(d => !d.hidden);
-            
-            // Create hierarchy WITHOUT pre-sorting
-            const root = d3.hierarchy({children: visibleData})
+            const root = d3.hierarchy({children: filteredData})
                 .sum(d => d.employment);
             
-            // Apply D3's treemap algorithm (it naturally handles layout)
-            const treemap = d3.treemap()
-                .size([width, height])
-                .paddingLeft(2)
-                .paddingRight(2)
-                .paddingTop(2)
-                .paddingBottom(2)
-                .round(true);
-            
+            const treemap = d3.treemap().size([width, height]).paddingTop(0).paddingLeft(2).paddingRight(2).paddingBottom(2);
             treemap(root);
             
-            // Draw rectangles
-            const nodes = svg.selectAll('.node')
-                .data(root.leaves())
-                .enter()
-                .append('g')
-                .attr('class', 'node')
+            const g = svg.selectAll('g').data(root.leaves()).enter().append('g')
                 .attr('transform', d => `translate(${d.x0},${d.y0})`);
             
-            nodes.append('rect')
+            g.append('rect')
                 .attr('width', d => d.x1 - d.x0)
                 .attr('height', d => d.y1 - d.y0)
-                .attr('fill', d => getColor(d.data, colorScheme))
+                .attr('fill', d => getColor(d.data))
                 .attr('stroke', 'white')
                 .attr('stroke-width', 2)
-                .on('mouseenter', function(event, d) {
-                    showTooltip(event, d.data);
-                    d3.select(this.parentNode).select('rect')
-                        .transition()
-                        .duration(150)
-                        .attr('stroke', '#1a202c')
-                        .attr('stroke-width', 3);
-                })
-                .on('mouseleave', function() {
-                    hideTooltip();
-                    d3.select(this.parentNode).select('rect')
-                        .transition()
-                        .duration(150)
-                        .attr('stroke', 'white')
-                        .attr('stroke-width', 2);
-                });
+                .on('mouseenter', (e, d) => showTooltip(e, d.data))
+                .on('mouseleave', () => hideTooltip());
             
-            // Add labels with better contrast
-            nodes.append('text')
+            g.append('text')
                 .attr('class', 'node-label')
                 .attr('x', d => (d.x1 - d.x0) / 2)
                 .attr('y', d => (d.y1 - d.y0) / 2)
                 .style('font-size', d => {
                     const area = (d.x1 - d.x0) * (d.y1 - d.y0);
-                    if (area < 2500) return '0px';
-                    if (area < 5000) return '11px';
-                    if (area < 10000) return '12px';
-                    return '13px';
+                    return area < 4000 ? '0px' : (area < 8000 ? '12px' : '13px');
                 })
                 .text(d => {
-                    const w = d.x1 - d.x0;
-                    const h = d.y1 - d.y0;
-                    if (w < 85 || h < 48) return '';
+                    if ((d.x1 - d.x0) < 85 || (d.y1 - d.y0) < 48) return '';
                     return d.data.name.split(' ').slice(0, 3).join('\n');
                 });
             
             updateStats();
         }
         
-        function showTooltip(event, d) {
-            const tooltip = d3.select('.tooltip');
-            const color = getAIExposureColor(d.ai_exposure_score);
+        function updateStats() {
+            const total = filteredData.reduce((s, d) => s + d.employment, 0);
+            const avgAI = filteredData.reduce((s, d) => s + d.ai_exposure_score, 0) / filteredData.length;
+            const highRisk = filteredData.filter(d => d.ai_exposure_score >= 8).length;
             
-            tooltip.html(`
-                <div class="tooltip-header">
-                    <div class="tooltip-swatch" style="background: ${color};"></div>
-                    <div class="tooltip-title">${d.name}</div>
+            document.getElementById('totalEmployment').textContent = total.toLocaleString();
+            document.getElementById('avgExposure').textContent = avgAI.toFixed(1) + '/10';
+            document.getElementById('totalOccupations').textContent = filteredData.length;
+            document.getElementById('highRisk').textContent = highRisk;
+        }
+        
+        function showTooltip(e, d) {
+            const color = getColorForAI(d.ai_exposure_score);
+            d3.select('.tooltip').html(`
+                <div style="display: flex; gap: 12px; align-items: center; margin-bottom: 14px; padding-bottom: 12px; border-bottom: 1px solid #e5e7eb;">
+                    <div style="width: 24px; height: 24px; background: ${color}; border-radius: 4px; border: 1px solid #ddd;"></div>
+                    <div style="font-weight: 700; font-size: 1.1em;">${d.name}</div>
                 </div>
-                <div class="tooltip-row">
-                    <span class="tooltip-label">Employment:</span>
-                    <span class="tooltip-value">${d.employment.toLocaleString()}</span>
-                </div>
-                <div class="tooltip-row">
-                    <span class="tooltip-label">Median Wage:</span>
-                    <span class="tooltip-value">${formatCurrency(d.median_wage_weekly)}/wk</span>
-                </div>
-                <div class="tooltip-row">
-                    <span class="tooltip-label">AI Exposure:</span>
-                    <span class="tooltip-value">${d.ai_exposure_score}/10</span>
-                </div>
-                <div class="tooltip-row">
-                    <span class="tooltip-label">Growth:</span>
-                    <span class="tooltip-value">${d.growth_outlook}</span>
-                </div>
-                <div class="tooltip-reasoning">
-                    ${d.ai_exposure_reasoning}
-                </div>
-            `)
-            .style('display', 'block')
-            .style('left', (event.pageX + 10) + 'px')
-            .style('top', (event.pageY + 10) + 'px');
+                <div style="margin: 10px 0;"><span style="font-weight: 600; color: #6b7280; font-size: 0.85em;">Employment:</span> <span style="font-weight: 600; float: right;">${d.employment.toLocaleString()}</span></div>
+                <div style="margin: 10px 0;"><span style="font-weight: 600; color: #6b7280; font-size: 0.85em;">Wage/week:</span> <span style="font-weight: 600; float: right;">NZ$${d.median_wage_weekly.toLocaleString()}</span></div>
+                <div style="margin: 10px 0;"><span style="font-weight: 600; color: #6b7280; font-size: 0.85em;">AI Exposure:</span> <span style="font-weight: 600; float: right;">${d.ai_exposure_score}/10</span></div>
+                <div style="margin-top: 12px; padding-top: 12px; border-top: 1px solid #e5e7eb; font-size: 0.85em; color: #4b5563; font-style: italic; line-height: 1.6;">${d.ai_exposure_reasoning}</div>
+            `).style('display', 'block').style('left', (e.pageX + 10) + 'px').style('top', (e.pageY + 10) + 'px');
         }
         
         function hideTooltip() {
             d3.select('.tooltip').style('display', 'none');
         }
         
-        document.addEventListener('mousemove', function(event) {
+        document.addEventListener('mousemove', e => {
             if (d3.select('.tooltip').style('display') === 'block') {
-                d3.select('.tooltip')
-                    .style('left', (event.pageX + 10) + 'px')
-                    .style('top', (event.pageY + 10) + 'px');
+                d3.select('.tooltip').style('left', (e.pageX + 10) + 'px').style('top', (e.pageY + 10) + 'px');
             }
         });
         
-        document.getElementById('colorBy').addEventListener('change', function(e) {
-            colorScheme = e.target.value;
-            drawChart();
+        document.getElementById('colorBy').addEventListener('change', e => {
+            currentColor = e.target.value;
+            draw();
         });
         
-        document.getElementById('sortBy').addEventListener('change', function(e) {
-            sortBy = e.target.value;
-            drawChart();
+        document.getElementById('sortBy').addEventListener('change', e => {
+            currentSort = e.target.value;
+            draw();
         });
         
-        document.getElementById('search').addEventListener('input', function(e) {
-            const query = e.target.value.toLowerCase();
-            data.forEach(d => {
-                d.hidden = query && !d.name.toLowerCase().includes(query);
-            });
-            drawChart();
+        document.getElementById('search').addEventListener('input', e => {
+            searchQuery = e.target.value;
+            draw();
         });
         
         function resetView() {
             document.getElementById('search').value = '';
             document.getElementById('colorBy').value = 'ai_exposure';
             document.getElementById('sortBy').value = 'employment';
-            colorScheme = 'ai_exposure';
-            sortBy = 'employment';
-            data.forEach(d => d.hidden = false);
-            drawChart();
+            currentColor = 'ai_exposure';
+            currentSort = 'employment';
+            searchQuery = '';
+            draw();
         }
         
-        // Load and render data
         fetch('data.json')
-            .then(response => response.json())
-            .then(jsonData => {
-                data = JSON.parse(JSON.stringify(jsonData));
-                drawChart();
-                window.addEventListener('resize', drawChart);
+            .then(r => r.json())
+            .then(d => {
+                allData = d;
+                draw();
+                window.addEventListener('resize', draw);
+                console.log('✓ Loaded', d.length, 'occupations. Muted palette active.');
             })
-            .catch(error => {
-                console.error('Error loading data:', error);
-                document.getElementById('chart').innerHTML = '<p style="padding: 20px; color: #dc2626; text-align: center;">Error loading data. Please check data.json exists.</p>';
+            .catch(err => {
+                document.getElementById('chart').innerHTML = '<text x="50%" y="50%" text-anchor="middle" fill="#dc2626">Error loading data</text>';
+                console.error(err);
             });
     </script>
 </body>
