@@ -19,7 +19,7 @@
         
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            background: #fafbfc;
+            background: #ffffff;
             min-height: 100vh;
             padding: 0;
             color: #1a202c;
@@ -28,10 +28,11 @@
         
         /* Header with accent border */
         .header {
-            background: white;
-            border-top: 3px solid #1f8b4f;
+            background: #ffffff;
+            border-top: 4px solid #1f8b4f;
             padding: 50px 20px 40px 20px;
             margin-bottom: 0;
+            border-bottom: 1px solid #e5e7eb;
         }
         
         .header-content {
@@ -50,7 +51,7 @@
         }
         
         .byline {
-            color: #718096;
+            color: #6b7280;
             font-size: 0.85em;
             font-weight: 500;
             letter-spacing: 0.3px;
@@ -59,7 +60,7 @@
         }
         
         .lede {
-            color: #4a5568;
+            color: #4b5563;
             font-size: 1.05em;
             line-height: 1.7;
             max-width: 800px;
@@ -75,29 +76,29 @@
         
         /* How-to explainer */
         .explainer {
-            background: white;
-            border: 1px solid #e2e8f0;
-            border-radius: 6px;
-            padding: 24px;
+            background: #f9fafb;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 32px;
             margin-bottom: 30px;
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 30px;
+            gap: 40px;
         }
         
         .explainer h3 {
             font-family: 'Playfair Display', serif;
-            font-size: 1.2em;
-            margin-bottom: 12px;
+            font-size: 1.3em;
+            margin-bottom: 16px;
             color: #1a202c;
             font-weight: 600;
         }
         
         .explainer p {
-            color: #4a5568;
-            font-size: 0.9em;
+            color: #4b5563;
+            font-size: 0.95em;
             line-height: 1.7;
-            margin-bottom: 8px;
+            margin-bottom: 12px;
         }
         
         .explainer ul {
@@ -106,27 +107,27 @@
         }
         
         .explainer li {
-            color: #4a5568;
-            font-size: 0.9em;
+            color: #4b5563;
+            font-size: 0.95em;
             line-height: 1.7;
-            margin-bottom: 6px;
+            margin-bottom: 10px;
         }
         
         .explainer li:before {
             content: "→ ";
             color: #1f8b4f;
             font-weight: 600;
-            margin-right: 6px;
+            margin-right: 8px;
         }
         
         /* Metrics row */
         .metrics {
             display: flex;
-            gap: 30px;
+            gap: 40px;
             margin-bottom: 30px;
-            padding: 20px 0;
-            border-top: 1px solid #e2e8f0;
-            border-bottom: 1px solid #e2e8f0;
+            padding: 24px 0;
+            border-top: 1px solid #e5e7eb;
+            border-bottom: 1px solid #e5e7eb;
             flex-wrap: wrap;
             align-items: center;
         }
@@ -134,11 +135,11 @@
         .metric {
             display: flex;
             align-items: baseline;
-            gap: 10px;
+            gap: 12px;
         }
         
         .metric-label {
-            color: #718096;
+            color: #6b7280;
             font-size: 0.8em;
             font-weight: 600;
             text-transform: uppercase;
@@ -147,33 +148,33 @@
         
         .metric-value {
             font-family: 'SF Mono', 'Roboto Mono', monospace;
-            font-size: 1.3em;
-            font-weight: 600;
+            font-size: 1.5em;
+            font-weight: 700;
             color: #1a202c;
         }
         
         /* Toolbar */
         .toolbar {
             display: flex;
-            gap: 15px;
+            gap: 16px;
             margin-bottom: 25px;
             align-items: center;
             flex-wrap: wrap;
-            background: white;
-            padding: 16px;
-            border-radius: 6px;
-            border: 1px solid #e2e8f0;
+            background: #f9fafb;
+            padding: 18px;
+            border-radius: 8px;
+            border: 1px solid #e5e7eb;
         }
         
         .toolbar-group {
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
         }
         
         .toolbar-group label {
-            font-weight: 500;
-            color: #4a5568;
+            font-weight: 600;
+            color: #374151;
             font-size: 0.9em;
         }
         
@@ -188,9 +189,9 @@
         }
         
         select, input {
-            padding: 8px 12px;
-            border: 1.5px solid #e2e8f0;
-            border-radius: 4px;
+            padding: 10px 14px;
+            border: 1.5px solid #d1d5db;
+            border-radius: 6px;
             font-size: 0.9em;
             background: white;
             cursor: pointer;
@@ -200,8 +201,8 @@
         }
         
         select:hover, input:hover {
-            border-color: #cbd5e0;
-            background: #f8f9fa;
+            border-color: #9ca3af;
+            background: #ffffff;
         }
         
         select:focus, input:focus {
@@ -212,13 +213,13 @@
         
         /* Buttons */
         .btn {
-            padding: 8px 14px;
+            padding: 10px 16px;
             background: white;
             color: #1a202c;
-            border: 1.5px solid #e2e8f0;
-            border-radius: 4px;
+            border: 1.5px solid #d1d5db;
+            border-radius: 6px;
             cursor: pointer;
-            font-weight: 500;
+            font-weight: 600;
             font-size: 0.9em;
             transition: all 0.2s ease;
             font-family: inherit;
@@ -228,8 +229,8 @@
         }
         
         .btn:hover {
-            background: #f8f9fa;
-            border-color: #cbd5e0;
+            background: #f3f4f6;
+            border-color: #9ca3af;
         }
         
         .btn.primary {
@@ -247,64 +248,65 @@
         .chart-wrapper {
             position: relative;
             background: white;
-            border: 1px solid #e2e8f0;
-            border-radius: 6px;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
             overflow: hidden;
             margin-bottom: 30px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
         }
         
         #chart {
             width: 100%;
-            min-height: 750px;
+            min-height: 700px;
             display: block;
         }
         
         /* Legend - positioned absolutely inside chart */
         .chart-legend {
             position: absolute;
-            top: 16px;
-            right: 16px;
-            background: rgba(255, 255, 255, 0.95);
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.98);
             backdrop-filter: blur(8px);
-            border: 1px solid rgba(226, 232, 240, 0.6);
-            border-radius: 6px;
-            padding: 14px 16px;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 16px 18px;
             z-index: 10;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
         
         .legend-title {
             font-size: 0.75em;
-            font-weight: 600;
-            color: #718096;
+            font-weight: 700;
+            color: #6b7280;
             text-transform: uppercase;
-            letter-spacing: 0.3px;
-            margin-bottom: 8px;
+            letter-spacing: 0.4px;
+            margin-bottom: 10px;
         }
         
         .legend-items {
             display: flex;
             flex-direction: column;
-            gap: 8px;
+            gap: 10px;
         }
         
         .legend-item {
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
         }
         
         .legend-color {
-            width: 16px;
-            height: 16px;
-            border-radius: 3px;
+            width: 18px;
+            height: 18px;
+            border-radius: 4px;
             border: 1px solid rgba(0, 0, 0, 0.1);
             flex-shrink: 0;
         }
         
         .legend-text {
-            font-size: 0.8em;
-            color: #4a5568;
+            font-size: 0.85em;
+            color: #374151;
             font-weight: 500;
         }
         
@@ -319,17 +321,17 @@
         .node:hover {
             stroke: #1a202c;
             stroke-width: 3px;
-            filter: brightness(0.96);
+            filter: brightness(0.95);
         }
         
         .node-label {
             pointer-events: none;
-            font-size: 11px;
-            font-weight: 500;
+            font-size: 13px;
+            font-weight: 600;
             text-anchor: middle;
             dominant-baseline: middle;
             fill: white;
-            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
             user-select: none;
         }
         
@@ -338,101 +340,102 @@
             position: absolute;
             background: white;
             color: #1a202c;
-            padding: 16px;
-            border-radius: 6px;
+            padding: 18px;
+            border-radius: 8px;
             font-size: 0.9em;
             pointer-events: none;
             z-index: 1000;
-            max-width: 320px;
-            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
-            border: 1px solid #e2e8f0;
+            max-width: 340px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            border: 1px solid #e5e7eb;
         }
         
         .tooltip-header {
             display: flex;
             align-items: center;
-            gap: 10px;
-            margin-bottom: 12px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid #e2e8f0;
+            gap: 12px;
+            margin-bottom: 14px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #e5e7eb;
         }
         
         .tooltip-swatch {
-            width: 20px;
-            height: 20px;
-            border-radius: 3px;
+            width: 24px;
+            height: 24px;
+            border-radius: 4px;
             border: 1px solid rgba(0, 0, 0, 0.1);
             flex-shrink: 0;
         }
         
         .tooltip-title {
-            font-weight: 600;
-            font-size: 1.05em;
+            font-weight: 700;
+            font-size: 1.1em;
             color: #1a202c;
         }
         
         .tooltip-row {
             display: flex;
             justify-content: space-between;
-            margin: 8px 0;
+            margin: 10px 0;
             gap: 12px;
         }
         
         .tooltip-label {
-            font-weight: 500;
-            color: #718096;
+            font-weight: 600;
+            color: #6b7280;
             font-size: 0.85em;
         }
         
         .tooltip-value {
             color: #1a202c;
             text-align: right;
-            font-weight: 500;
+            font-weight: 600;
             font-family: 'SF Mono', 'Roboto Mono', monospace;
         }
         
         .tooltip-reasoning {
-            margin-top: 10px;
-            padding-top: 10px;
-            border-top: 1px solid #e2e8f0;
-            font-size: 0.8em;
-            line-height: 1.5;
-            color: #4a5568;
+            margin-top: 12px;
+            padding-top: 12px;
+            border-top: 1px solid #e5e7eb;
+            font-size: 0.85em;
+            line-height: 1.6;
+            color: #4b5563;
             font-style: italic;
         }
         
         /* Footer sections */
         .methodology {
-            background: white;
-            border: 1px solid #e2e8f0;
-            border-radius: 6px;
-            padding: 24px;
+            background: #f9fafb;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 32px;
             margin-bottom: 30px;
         }
         
         .methodology h3 {
             font-family: 'Playfair Display', serif;
-            font-size: 1.1em;
-            margin-bottom: 12px;
+            font-size: 1.2em;
+            margin-bottom: 16px;
             color: #1a202c;
             font-weight: 600;
         }
         
         .methodology p {
-            color: #4a5568;
-            font-size: 0.9em;
+            color: #4b5563;
+            font-size: 0.95em;
             line-height: 1.7;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
         }
         
         .methodology em {
-            color: #718096;
+            color: #6b7280;
         }
         
         /* Responsive */
         @media (max-width: 900px) {
             .explainer {
                 grid-template-columns: 1fr;
+                gap: 24px;
             }
             
             h1 {
@@ -472,9 +475,6 @@
             
             .chart-legend {
                 position: static;
-                display: flex;
-                flex-direction: column;
-                margin-bottom: 16px;
                 margin-top: -10px;
                 margin-left: -1px;
                 margin-right: -1px;
@@ -482,7 +482,7 @@
                 border-right: none;
                 border-top: none;
                 border-radius: 0;
-                background: #f7fafc;
+                background: #f9fafb;
             }
         }
         
@@ -504,7 +504,7 @@
             }
             
             .explainer {
-                padding: 16px;
+                padding: 20px;
             }
             
             .metric {
@@ -595,19 +595,19 @@
                 <div class="legend-title">AI Exposure</div>
                 <div class="legend-items">
                     <div class="legend-item">
-                        <div class="legend-color" style="background: #2ecc71;"></div>
+                        <div class="legend-color" style="background: #10b981;"></div>
                         <div class="legend-text">Low (0–3)</div>
                     </div>
                     <div class="legend-item">
-                        <div class="legend-color" style="background: #f39c12;"></div>
+                        <div class="legend-color" style="background: #f59e0b;"></div>
                         <div class="legend-text">Moderate (4–5)</div>
                     </div>
                     <div class="legend-item">
-                        <div class="legend-color" style="background: #e67e22;"></div>
+                        <div class="legend-color" style="background: #d97706;"></div>
                         <div class="legend-text">High (6–7)</div>
                     </div>
                     <div class="legend-item">
-                        <div class="legend-color" style="background: #e74c3c;"></div>
+                        <div class="legend-color" style="background: #dc2626;"></div>
                         <div class="legend-text">Very High (8–10)</div>
                     </div>
                 </div>
@@ -633,37 +633,37 @@
         
         // AI Exposure color scale
         function getAIExposureColor(score) {
-            if (score <= 3) return '#2ecc71'; // Green - low
-            if (score <= 5) return '#f39c12'; // Orange - moderate
-            if (score <= 7) return '#e67e22'; // Orange-red - high
-            return '#e74c3c'; // Red - very high
+            if (score <= 3) return '#10b981'; // Green - low
+            if (score <= 5) return '#f59e0b'; // Amber - moderate
+            if (score <= 7) return '#d97706'; // Orange - high
+            return '#dc2626'; // Red - very high
         }
         
         // Growth color scale
         function getGrowthColor(outlook) {
             const colors = {
-                'strong': '#27ae60',
-                'moderate': '#3498db',
-                'stable': '#95a5a6',
-                'decline': '#e74c3c'
+                'strong': '#059669',
+                'moderate': '#3b82f6',
+                'stable': '#9ca3af',
+                'decline': '#dc2626'
             };
-            return colors[outlook] || '#95a5a6';
+            return colors[outlook] || '#9ca3af';
         }
         
         // Wage color scale
         function getWageColor(wage) {
-            if (wage < 1100) return '#e74c3c';
-            if (wage < 1300) return '#e67e22';
-            if (wage < 1600) return '#f39c12';
-            if (wage < 2000) return '#f1c40f';
-            return '#2ecc71';
+            if (wage < 1100) return '#dc2626';
+            if (wage < 1300) return '#d97706';
+            if (wage < 1600) return '#f59e0b';
+            if (wage < 2000) return '#eab308';
+            return '#10b981';
         }
         
         function getColor(d, scheme) {
             if (scheme === 'ai_exposure') return getAIExposureColor(d.ai_exposure_score);
             if (scheme === 'growth') return getGrowthColor(d.growth_outlook);
             if (scheme === 'wage') return getWageColor(d.median_wage_weekly);
-            return '#95a5a6';
+            return '#9ca3af';
         }
         
         function formatCurrency(val) {
@@ -710,7 +710,7 @@
             const chartEl = document.getElementById('chart');
             const margin = { top: 0, right: 0, bottom: 0, left: 0 };
             const width = chartEl.parentElement.clientWidth - margin.left - margin.right;
-            const height = 750 - margin.top - margin.bottom;
+            const height = 700 - margin.top - margin.bottom;
             
             // Clear previous chart
             d3.select('#chart').selectAll('svg').remove();
@@ -772,22 +772,22 @@
                         .attr('stroke-width', 2);
                 });
             
-            // Add labels
+            // Add labels with better contrast
             nodes.append('text')
                 .attr('class', 'node-label')
                 .attr('x', d => (d.x1 - d.x0) / 2)
                 .attr('y', d => (d.y1 - d.y0) / 2)
                 .style('font-size', d => {
                     const area = (d.x1 - d.x0) * (d.y1 - d.y0);
-                    if (area < 1500) return '10px';
-                    if (area < 4000) return '11px';
-                    if (area < 8000) return '12px';
-                    return '13px';
+                    if (area < 2000) return '0px';
+                    if (area < 4000) return '12px';
+                    if (area < 8000) return '13px';
+                    return '14px';
                 })
                 .text(d => {
                     const w = d.x1 - d.x0;
                     const h = d.y1 - d.y0;
-                    if (w < 80 || h < 40) return '';
+                    if (w < 90 || h < 50) return '';
                     return d.data.name.split(' ').slice(0, 3).join('\n');
                 });
             
@@ -796,9 +796,6 @@
         
         function showTooltip(event, d) {
             const tooltip = d3.select('.tooltip');
-            const riskLevel = d.ai_exposure_score <= 3 ? 'Low' :
-                            d.ai_exposure_score <= 5 ? 'Moderate' :
-                            d.ai_exposure_score <= 7 ? 'High' : 'Very High';
             const color = getAIExposureColor(d.ai_exposure_score);
             
             tooltip.html(`
@@ -881,7 +878,7 @@
             })
             .catch(error => {
                 console.error('Error loading data:', error);
-                document.getElementById('chart').innerHTML = '<p style="padding: 20px; color: #e74c3c; text-align: center;">Error loading data. Please check data.json exists.</p>';
+                document.getElementById('chart').innerHTML = '<p style="padding: 20px; color: #dc2626; text-align: center;">Error loading data. Please check data.json exists.</p>';
             });
     </script>
 </body>
