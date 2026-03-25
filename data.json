@@ -2,571 +2,628 @@
   {
     "id": "managers-001",
     "name": "Chief Executives and Directors",
-    "employment": 45000,
-    "median_wage_weekly": 1850,
+    "employment": 45630,
+    "median_wage_weekly": 1887,
     "growth_outlook": "stable",
     "description": "Plan, organize, direct, coordinate and control general operations of organizations and departments. Make strategic decisions and oversee all business functions.",
     "ai_exposure_score": 7,
-    "ai_exposure_reasoning": "High exposure: Largely digital work involving strategic planning, email, reports, video calls. AI assists with analysis and decision-making."
+    "ai_exposure_reasoning": "High exposure: Largely digital work involving strategic planning, email, reports, video calls. AI assists with analysis and decision-making.",
+    "data_quarter": "December 2025"
   },
   {
     "id": "managers-002",
     "name": "General Managers and Managers nec",
-    "employment": 78000,
-    "median_wage_weekly": 1720,
+    "employment": 79092,
+    "median_wage_weekly": 1754,
     "growth_outlook": "moderate",
     "description": "Oversee general management of companies, departments or major sections. Manage resources, staff, and operations.",
     "ai_exposure_score": 6,
-    "ai_exposure_reasoning": "High exposure: Mix of digital (reports, email, planning) and human interaction. AI can handle scheduling, data analysis, and documentation."
+    "ai_exposure_reasoning": "High exposure: Mix of digital (reports, email, planning) and human interaction. AI can handle scheduling, data analysis, and documentation.",
+    "data_quarter": "December 2025"
   },
   {
     "id": "managers-003",
     "name": "Finance Managers",
-    "employment": 22000,
-    "median_wage_weekly": 1680,
+    "employment": 22308,
+    "median_wage_weekly": 1713,
     "growth_outlook": "moderate",
     "description": "Manage accounting, finance and investment functions. Create financial strategy and oversee budgets.",
     "ai_exposure_score": 7,
-    "ai_exposure_reasoning": "High exposure: Mostly screen-based work - spreadsheets, financial analysis, reporting. AI can automate data processing and forecasting."
+    "ai_exposure_reasoning": "High exposure: Mostly screen-based work - spreadsheets, financial analysis, reporting. AI can automate data processing and forecasting.",
+    "data_quarter": "December 2025"
   },
   {
     "id": "managers-004",
     "name": "Human Resources Managers",
-    "employment": 15000,
-    "median_wage_weekly": 1620,
+    "employment": 15210,
+    "median_wage_weekly": 1652,
     "growth_outlook": "strong",
     "description": "Plan and coordinate human resources activities, recruitment, training, and employee relations.",
     "ai_exposure_score": 6,
-    "ai_exposure_reasoning": "High exposure: Digital tools for recruitment, training management, analytics. Requires human judgment but increasingly AI-assisted."
+    "ai_exposure_reasoning": "High exposure: Digital tools for recruitment, training management, analytics. Requires human judgment but increasingly AI-assisted.",
+    "data_quarter": "December 2025"
   },
   {
     "id": "managers-005",
     "name": "Sales and Marketing Managers",
-    "employment": 28000,
-    "median_wage_weekly": 1650,
+    "employment": 28392,
+    "median_wage_weekly": 1683,
     "growth_outlook": "moderate",
     "description": "Plan and direct sales, marketing and related operations. Set strategies to maximize market share.",
     "ai_exposure_score": 7,
-    "ai_exposure_reasoning": "High exposure: Digital marketing tools, analytics, email campaigns. AI generates content, optimizes campaigns, analyzes customer data."
+    "ai_exposure_reasoning": "High exposure: Digital marketing tools, analytics, email campaigns. AI generates content, optimizes campaigns, analyzes customer data.",
+    "data_quarter": "December 2025"
   },
   {
     "id": "managers-006",
     "name": "Operations and Project Managers",
-    "employment": 35000,
-    "median_wage_weekly": 1700,
+    "employment": 35490,
+    "median_wage_weekly": 1734,
     "growth_outlook": "strong",
     "description": "Plan and coordinate operational or project activities. Manage timelines, budgets, resources and teams.",
     "ai_exposure_score": 6,
-    "ai_exposure_reasoning": "High exposure: Project management software, digital planning, reporting. AI assists with scheduling, risk analysis, and resource allocation."
+    "ai_exposure_reasoning": "High exposure: Project management software, digital planning, reporting. AI assists with scheduling, risk analysis, and resource allocation.",
+    "data_quarter": "December 2025"
   },
   {
     "id": "professionals-001",
     "name": "Software and ICT Professionals",
-    "employment": 52000,
-    "median_wage_weekly": 1850,
+    "employment": 52728,
+    "median_wage_weekly": 1887,
     "growth_outlook": "strong",
     "description": "Design, develop, test and maintain software systems, databases, networks. Manage IT infrastructure and cybersecurity.",
     "ai_exposure_score": 8,
-    "ai_exposure_reasoning": "Very high exposure: Entirely screen-based. AI co-pilots assist with coding, testing, debugging. Some creative architecture work remains."
+    "ai_exposure_reasoning": "Very high exposure: Entirely screen-based. AI co-pilots assist with coding, testing, debugging. Some creative architecture work remains.",
+    "data_quarter": "December 2025"
   },
   {
     "id": "professionals-002",
     "name": "Accountants",
-    "employment": 35000,
-    "median_wage_weekly": 1680,
+    "employment": 35490,
+    "median_wage_weekly": 1713,
     "growth_outlook": "moderate",
     "description": "Prepare, examine and verify financial accounts and statements. Ensure legal and regulatory compliance.",
     "ai_exposure_score": 7,
-    "ai_exposure_reasoning": "High exposure: Mostly digital spreadsheets and accounting software. Routine reconciliation and data entry highly automatable."
+    "ai_exposure_reasoning": "High exposure: Mostly digital spreadsheets and accounting software. Routine reconciliation and data entry highly automatable.",
+    "data_quarter": "December 2025"
   },
   {
     "id": "professionals-003",
     "name": "Engineers",
-    "employment": 48000,
-    "median_wage_weekly": 1750,
+    "employment": 48672,
+    "median_wage_weekly": 1785,
     "growth_outlook": "strong",
     "description": "Design, develop and improve engineering products, structures, processes and systems. Conduct technical analysis.",
     "ai_exposure_score": 7,
-    "ai_exposure_reasoning": "High exposure: CAD software, simulations, analysis - all digital. AI assists with design optimization, calculations, and documentation."
+    "ai_exposure_reasoning": "High exposure: CAD software, simulations, analysis - all digital. AI assists with design optimization, calculations, and documentation.",
+    "data_quarter": "December 2025"
   },
   {
     "id": "professionals-004",
     "name": "Architects and Surveyors",
-    "employment": 12000,
-    "median_wage_weekly": 1720,
+    "employment": 12168,
+    "median_wage_weekly": 1754,
     "growth_outlook": "moderate",
     "description": "Design buildings and structures. Conduct land surveys and prepare architectural drawings.",
     "ai_exposure_score": 6,
-    "ai_exposure_reasoning": "High exposure: Digital design tools, CAD, visualization. Requires spatial reasoning and client interaction; AI assists with drawings."
+    "ai_exposure_reasoning": "High exposure: Digital design tools, CAD, visualization. Requires spatial reasoning and client interaction; AI assists with drawings.",
+    "data_quarter": "December 2025"
   },
   {
     "id": "professionals-005",
     "name": "Scientists",
-    "employment": 18000,
-    "median_wage_weekly": 1680,
+    "employment": 18252,
+    "median_wage_weekly": 1713,
     "growth_outlook": "moderate",
     "description": "Conduct research in physical, biological or environmental sciences. Develop new technologies and processes.",
     "ai_exposure_score": 6,
-    "ai_exposure_reasoning": "High exposure: Data analysis, literature review, modeling - mostly digital. AI assists with analysis and hypothesis generation."
+    "ai_exposure_reasoning": "High exposure: Data analysis, literature review, modeling - mostly digital. AI assists with analysis and hypothesis generation.",
+    "data_quarter": "December 2025"
   },
   {
     "id": "professionals-006",
     "name": "Teachers",
-    "employment": 88000,
-    "median_wage_weekly": 1550,
+    "employment": 89232,
+    "median_wage_weekly": 1581,
     "growth_outlook": "moderate",
     "description": "Teach students from early childhood through tertiary levels. Develop curriculum and assess learning outcomes.",
     "ai_exposure_score": 6,
-    "ai_exposure_reasoning": "High exposure: Digital lesson planning, grading, communication. AI can generate content, provide personalized instruction support. Human relationship essential."
+    "ai_exposure_reasoning": "High exposure: Digital lesson planning, grading, communication. AI can generate content, provide personalized instruction support. Human relationship essential.",
+    "data_quarter": "December 2025"
   },
   {
     "id": "professionals-007",
     "name": "Nurses and Nursing Professionals",
-    "employment": 72000,
-    "median_wage_weekly": 1450,
+    "employment": 73008,
+    "median_wage_weekly": 1479,
     "growth_outlook": "strong",
     "description": "Provide nursing care and health services. Work in hospitals, clinics, community and aged care settings.",
     "ai_exposure_score": 5,
-    "ai_exposure_reasoning": "Moderate exposure: Physical care essential but increasing digital work (patient records, monitoring). AI assists with diagnostics and charting."
+    "ai_exposure_reasoning": "Moderate exposure: Physical care essential but increasing digital work (patient records, monitoring). AI assists with diagnostics and charting.",
+    "data_quarter": "December 2025"
   },
   {
     "id": "professionals-008",
     "name": "Doctors and Physicians",
-    "employment": 15000,
-    "median_wage_weekly": 1950,
+    "employment": 15210,
+    "median_wage_weekly": 1989,
     "growth_outlook": "strong",
     "description": "Diagnose and treat diseases. Perform medical procedures and prescribe medications.",
     "ai_exposure_score": 6,
-    "ai_exposure_reasoning": "High exposure: Diagnosis increasingly supported by AI imaging analysis and data. Procedures remain physical; patient interaction critical."
+    "ai_exposure_reasoning": "High exposure: Diagnosis increasingly supported by AI imaging analysis and data. Procedures remain physical; patient interaction critical.",
+    "data_quarter": "December 2025"
   },
   {
     "id": "professionals-009",
     "name": "Dentists",
-    "employment": 5500,
-    "median_wage_weekly": 1820,
+    "employment": 5577,
+    "median_wage_weekly": 1856,
     "growth_outlook": "moderate",
     "description": "Provide dental care and treatment. Diagnose and treat dental conditions and perform procedures.",
     "ai_exposure_score": 5,
-    "ai_exposure_reasoning": "Moderate exposure: Physical procedures require hands-on work. Digital tools for imaging and planning; AI assists with diagnosis."
+    "ai_exposure_reasoning": "Moderate exposure: Physical procedures require hands-on work. Digital tools for imaging and planning; AI assists with diagnosis.",
+    "data_quarter": "December 2025"
   },
   {
     "id": "professionals-010",
     "name": "Lawyers and Legal Professionals",
-    "employment": 9000,
-    "median_wage_weekly": 1850,
+    "employment": 9126,
+    "median_wage_weekly": 1887,
     "growth_outlook": "stable",
     "description": "Provide legal advice, represent clients in court, draft legal documents and ensure regulatory compliance.",
     "ai_exposure_score": 8,
-    "ai_exposure_reasoning": "Very high exposure: Document drafting, contract review, legal research highly automatable by AI. Client relations and courtroom work remain."
+    "ai_exposure_reasoning": "Very high exposure: Document drafting, contract review, legal research highly automatable by AI. Client relations and courtroom work remain.",
+    "data_quarter": "December 2025"
   },
   {
     "id": "professionals-011",
     "name": "Psychologists and Counsellors",
-    "employment": 8500,
-    "median_wage_weekly": 1520,
+    "employment": 8619,
+    "median_wage_weekly": 1550,
     "growth_outlook": "strong",
     "description": "Assess and treat mental health issues. Provide counselling and psychological support services.",
     "ai_exposure_score": 5,
-    "ai_exposure_reasoning": "Moderate exposure: Human relationship central to work. AI assists with note-taking, data analysis, treatment planning. Cannot replace empathy."
+    "ai_exposure_reasoning": "Moderate exposure: Human relationship central to work. AI assists with note-taking, data analysis, treatment planning. Cannot replace empathy.",
+    "data_quarter": "December 2025"
   },
   {
     "id": "professionals-012",
     "name": "Marketing and Communications Specialists",
-    "employment": 28000,
-    "median_wage_weekly": 1580,
+    "employment": 28392,
+    "median_wage_weekly": 1611,
     "growth_outlook": "strong",
     "description": "Develop marketing strategies, content, and campaigns. Manage brand communications and public relations.",
     "ai_exposure_score": 7,
-    "ai_exposure_reasoning": "High exposure: Content creation, social media, analytics - increasingly digital and AI-assisted. AI generates copy, designs, analyzes trends."
+    "ai_exposure_reasoning": "High exposure: Content creation, social media, analytics - increasingly digital and AI-assisted. AI generates copy, designs, analyzes trends.",
+    "data_quarter": "December 2025"
   },
   {
     "id": "professionals-013",
     "name": "Data Analysts and Scientists",
-    "employment": 18000,
-    "median_wage_weekly": 1750,
+    "employment": 18252,
+    "median_wage_weekly": 1785,
     "growth_outlook": "strong",
     "description": "Collect, analyze and interpret data. Create models and insights to inform business decisions.",
     "ai_exposure_score": 8,
-    "ai_exposure_reasoning": "Very high exposure: Almost entirely screen-based and digital. AI assists with model building, pattern detection, visualization. Insight generation remains."
+    "ai_exposure_reasoning": "Very high exposure: Almost entirely screen-based and digital. AI assists with model building, pattern detection, visualization. Insight generation remains.",
+    "data_quarter": "December 2025"
   },
   {
     "id": "professionals-014",
     "name": "Designers and Creatives",
-    "employment": 22000,
-    "median_wage_weekly": 1480,
+    "employment": 22308,
+    "median_wage_weekly": 1509,
     "growth_outlook": "moderate",
     "description": "Create visual designs, user experiences, graphics and creative content for various media.",
     "ai_exposure_score": 7,
-    "ai_exposure_reasoning": "High exposure: Digital design tools, AI image generation. Creative direction and strategy remain human; execution increasingly AI-assisted."
+    "ai_exposure_reasoning": "High exposure: Digital design tools, AI image generation. Creative direction and strategy remain human; execution increasingly AI-assisted.",
+    "data_quarter": "December 2025"
   },
   {
     "id": "technicians-001",
     "name": "Electrical Technicians",
-    "employment": 32000,
-    "median_wage_weekly": 1380,
+    "employment": 32448,
+    "median_wage_weekly": 1407,
     "growth_outlook": "moderate",
     "description": "Install, maintain and repair electrical systems and equipment in buildings and infrastructure.",
     "ai_exposure_score": 3,
-    "ai_exposure_reasoning": "Low exposure: Requires in-person, hands-on work. Physical problem-solving in real environments. Some digital troubleshooting tools."
+    "ai_exposure_reasoning": "Low exposure: Requires in-person, hands-on work. Physical problem-solving in real environments. Some digital troubleshooting tools.",
+    "data_quarter": "December 2025"
   },
   {
     "id": "technicians-002",
     "name": "Mechanical Technicians",
-    "employment": 28000,
-    "median_wage_weekly": 1350,
+    "employment": 28392,
+    "median_wage_weekly": 1377,
     "growth_outlook": "moderate",
     "description": "Install, maintain and repair mechanical equipment, machinery and systems.",
     "ai_exposure_score": 3,
-    "ai_exposure_reasoning": "Low exposure: Physical hands-on maintenance work. Some digital diagnostics but mostly hands-on troubleshooting."
+    "ai_exposure_reasoning": "Low exposure: Physical hands-on maintenance work. Some digital diagnostics but mostly hands-on troubleshooting.",
+    "data_quarter": "December 2025"
   },
   {
     "id": "technicians-003",
     "name": "IT Support Technicians",
-    "employment": 18000,
-    "median_wage_weekly": 1380,
+    "employment": 18252,
+    "median_wage_weekly": 1407,
     "growth_outlook": "moderate",
     "description": "Provide technical support for IT systems, networks, hardware and software. Troubleshoot issues and maintain systems.",
     "ai_exposure_score": 6,
-    "ai_exposure_reasoning": "High exposure: Largely screen-based troubleshooting and support. AI chatbots and automated diagnostics handle routine issues."
+    "ai_exposure_reasoning": "High exposure: Largely screen-based troubleshooting and support. AI chatbots and automated diagnostics handle routine issues.",
+    "data_quarter": "December 2025"
   },
   {
     "id": "technicians-004",
     "name": "Motor Mechanics",
-    "employment": 22000,
-    "median_wage_weekly": 1330,
+    "employment": 22308,
+    "median_wage_weekly": 1356,
     "growth_outlook": "stable",
     "description": "Repair and maintain motor vehicles. Diagnose mechanical faults and replace components.",
     "ai_exposure_score": 3,
-    "ai_exposure_reasoning": "Low exposure: Primarily hands-on physical work. Digital diagnostics assist but real-world mechanical skills essential."
+    "ai_exposure_reasoning": "Low exposure: Primarily hands-on physical work. Digital diagnostics assist but real-world mechanical skills essential.",
+    "data_quarter": "December 2025"
   },
   {
     "id": "technicians-005",
     "name": "Electricians",
-    "employment": 35000,
-    "median_wage_weekly": 1420,
+    "employment": 35490,
+    "median_wage_weekly": 1448,
     "growth_outlook": "moderate",
     "description": "Install, maintain and repair electrical systems. Ensure compliance with safety standards and regulations.",
     "ai_exposure_score": 3,
-    "ai_exposure_reasoning": "Low exposure: Physically demanding, on-site work. Safety-critical decisions require human judgment and in-person presence."
+    "ai_exposure_reasoning": "Low exposure: Physically demanding, on-site work. Safety-critical decisions require human judgment and in-person presence.",
+    "data_quarter": "December 2025"
   },
   {
     "id": "technicians-006",
     "name": "Plumbers",
-    "employment": 28000,
-    "median_wage_weekly": 1400,
+    "employment": 28392,
+    "median_wage_weekly": 1428,
     "growth_outlook": "stable",
     "description": "Install, maintain and repair plumbing systems. Fix leaks and maintain water supply and drainage.",
     "ai_exposure_score": 2,
-    "ai_exposure_reasoning": "Low exposure: Hands-on physical work in unpredictable environments. Site-specific problem-solving. Minimal digital component."
+    "ai_exposure_reasoning": "Low exposure: Hands-on physical work in unpredictable environments. Site-specific problem-solving. Minimal digital component.",
+    "data_quarter": "December 2025"
   },
   {
     "id": "technicians-007",
     "name": "Carpenters",
-    "employment": 32000,
-    "median_wage_weekly": 1390,
+    "employment": 32448,
+    "median_wage_weekly": 1417,
     "growth_outlook": "moderate",
     "description": "Construct, erect and repair wooden structures and components. Work on buildings, furniture and frameworks.",
     "ai_exposure_score": 3,
-    "ai_exposure_reasoning": "Low exposure: Mostly hands-on construction work. Some digital design tools used; primarily physical skill-based."
+    "ai_exposure_reasoning": "Low exposure: Mostly hands-on construction work. Some digital design tools used; primarily physical skill-based.",
+    "data_quarter": "December 2025"
   },
   {
     "id": "technicians-008",
     "name": "Welders and Metalworkers",
-    "employment": 15000,
-    "median_wage_weekly": 1360,
+    "employment": 15210,
+    "median_wage_weekly": 1387,
     "growth_outlook": "moderate",
     "description": "Weld, bend, shape and form metal components. Construct and repair metal structures.",
     "ai_exposure_score": 2,
-    "ai_exposure_reasoning": "Low exposure: Highly physical, skilled manual work. AI cannot replicate welding skills. Minimal digital tasks."
+    "ai_exposure_reasoning": "Low exposure: Highly physical, skilled manual work. AI cannot replicate welding skills. Minimal digital tasks.",
+    "data_quarter": "December 2025"
   },
   {
     "id": "technicians-009",
     "name": "HVAC Technicians",
-    "employment": 10000,
-    "median_wage_weekly": 1380,
+    "employment": 10140,
+    "median_wage_weekly": 1407,
     "growth_outlook": "moderate",
     "description": "Install, maintain and repair heating, ventilation and air conditioning systems.",
     "ai_exposure_score": 3,
-    "ai_exposure_reasoning": "Low exposure: Physical installation and repair work. Some digital diagnostics; real-world problem-solving essential."
+    "ai_exposure_reasoning": "Low exposure: Physical installation and repair work. Some digital diagnostics; real-world problem-solving essential.",
+    "data_quarter": "December 2025"
   },
   {
     "id": "technicians-010",
     "name": "Builders and Site Supervisors",
-    "employment": 25000,
-    "median_wage_weekly": 1450,
+    "employment": 25350,
+    "median_wage_weekly": 1479,
     "growth_outlook": "moderate",
     "description": "Supervise construction sites and coordinate building operations. Ensure safety and quality standards.",
     "ai_exposure_score": 4,
-    "ai_exposure_reasoning": "Moderate exposure: Mix of on-site coordination and digital planning tools. Project management increasingly digital; human presence essential."
+    "ai_exposure_reasoning": "Moderate exposure: Mix of on-site coordination and digital planning tools. Project management increasingly digital; human presence essential.",
+    "data_quarter": "December 2025"
   },
   {
     "id": "community-001",
     "name": "Childcare Workers",
-    "employment": 28000,
-    "median_wage_weekly": 1080,
+    "employment": 28392,
+    "median_wage_weekly": 1101,
     "growth_outlook": "strong",
     "description": "Provide care and education for young children in childcare settings. Supervise and facilitate development activities.",
     "ai_exposure_score": 2,
-    "ai_exposure_reasoning": "Low exposure: Requires constant in-person presence and physical interaction. Human relationship and supervision critical. AI cannot replace presence."
+    "ai_exposure_reasoning": "Low exposure: Requires constant in-person presence and physical interaction. Human relationship and supervision critical. AI cannot replace presence.",
+    "data_quarter": "December 2025"
   },
   {
     "id": "community-002",
     "name": "Aged Care Workers",
-    "employment": 42000,
-    "median_wage_weekly": 1100,
+    "employment": 42588,
+    "median_wage_weekly": 1122,
     "growth_outlook": "strong",
     "description": "Provide care and support to elderly people in residential and community settings. Assist with daily activities.",
     "ai_exposure_score": 2,
-    "ai_exposure_reasoning": "Low exposure: Physical, hands-on care required. Human compassion and presence essential. Mostly in-person work."
+    "ai_exposure_reasoning": "Low exposure: Physical, hands-on care required. Human compassion and presence essential. Mostly in-person work.",
+    "data_quarter": "December 2025"
   },
   {
     "id": "community-003",
     "name": "Social Workers",
-    "employment": 12000,
-    "median_wage_weekly": 1480,
+    "employment": 12168,
+    "median_wage_weekly": 1509,
     "growth_outlook": "strong",
     "description": "Support vulnerable people and families. Connect clients with social services and resources.",
     "ai_exposure_score": 5,
-    "ai_exposure_reasoning": "Moderate exposure: Human relationship central but increasing digital case management. AI assists with resource matching and documentation."
+    "ai_exposure_reasoning": "Moderate exposure: Human relationship central but increasing digital case management. AI assists with resource matching and documentation.",
+    "data_quarter": "December 2025"
   },
   {
     "id": "community-004",
     "name": "Disability Support Workers",
-    "employment": 18000,
-    "median_wage_weekly": 1120,
+    "employment": 18252,
+    "median_wage_weekly": 1142,
     "growth_outlook": "strong",
     "description": "Provide support and care to people with disabilities. Assist with daily living and work activities.",
     "ai_exposure_score": 2,
-    "ai_exposure_reasoning": "Low exposure: Physical in-person support essential. Direct human care and interaction cannot be automated."
+    "ai_exposure_reasoning": "Low exposure: Physical in-person support essential. Direct human care and interaction cannot be automated.",
+    "data_quarter": "December 2025"
   },
   {
     "id": "community-005",
     "name": "Security Guards",
-    "employment": 22000,
-    "median_wage_weekly": 1160,
+    "employment": 22308,
+    "median_wage_weekly": 1183,
     "growth_outlook": "stable",
     "description": "Protect people, property and premises. Monitor security, respond to incidents and enforce access control.",
     "ai_exposure_score": 4,
-    "ai_exposure_reasoning": "Moderate exposure: Mix of monitoring (digital systems, AI surveillance) and physical presence. Human judgment required for incidents."
+    "ai_exposure_reasoning": "Moderate exposure: Mix of monitoring (digital systems, AI surveillance) and physical presence. Human judgment required for incidents.",
+    "data_quarter": "December 2025"
   },
   {
     "id": "community-006",
     "name": "Police Officers",
-    "employment": 12000,
-    "median_wage_weekly": 1580,
+    "employment": 12168,
+    "median_wage_weekly": 1611,
     "growth_outlook": "stable",
     "description": "Maintain law and order. Respond to incidents, investigate crimes and enforce regulations.",
     "ai_exposure_score": 4,
-    "ai_exposure_reasoning": "Moderate exposure: Increasing digital tools for crime analysis and reporting. Physical presence and judgment essential for operations."
+    "ai_exposure_reasoning": "Moderate exposure: Increasing digital tools for crime analysis and reporting. Physical presence and judgment essential for operations.",
+    "data_quarter": "December 2025"
   },
   {
     "id": "community-007",
     "name": "Firefighters",
-    "employment": 4500,
-    "median_wage_weekly": 1620,
+    "employment": 4563,
+    "median_wage_weekly": 1652,
     "growth_outlook": "stable",
     "description": "Respond to fire and emergency incidents. Conduct rescue operations and prevent fires.",
     "ai_exposure_score": 1,
-    "ai_exposure_reasoning": "Minimal exposure: Extremely dangerous, unpredictable physical work. Human presence and split-second decision-making non-negotiable."
+    "ai_exposure_reasoning": "Minimal exposure: Extremely dangerous, unpredictable physical work. Human presence and split-second decision-making non-negotiable.",
+    "data_quarter": "December 2025"
   },
   {
     "id": "community-008",
     "name": "Healthcare Assistants",
-    "employment": 35000,
-    "median_wage_weekly": 1200,
+    "employment": 35490,
+    "median_wage_weekly": 1224,
     "growth_outlook": "strong",
     "description": "Assist nurses and healthcare professionals. Support patients with daily activities and care tasks.",
     "ai_exposure_score": 3,
-    "ai_exposure_reasoning": "Low exposure: Primarily hands-on physical patient care. In-person presence required. Some digital charting; automation limited."
+    "ai_exposure_reasoning": "Low exposure: Primarily hands-on physical patient care. In-person presence required. Some digital charting; automation limited.",
+    "data_quarter": "December 2025"
   },
   {
     "id": "clerical-001",
     "name": "Administrative Assistants",
-    "employment": 48000,
-    "median_wage_weekly": 1280,
+    "employment": 48672,
+    "median_wage_weekly": 1305,
     "growth_outlook": "stable",
     "description": "Provide administrative support, manage correspondence, handle scheduling and coordinate office operations.",
     "ai_exposure_score": 7,
-    "ai_exposure_reasoning": "High exposure: Largely screen-based office work. Email, scheduling, document management highly automatable by AI. Judgment role shrinking."
+    "ai_exposure_reasoning": "High exposure: Largely screen-based office work. Email, scheduling, document management highly automatable by AI. Judgment role shrinking.",
+    "data_quarter": "December 2025"
   },
   {
     "id": "clerical-002",
     "name": "Secretaries and Receptionist",
-    "employment": 32000,
-    "median_wage_weekly": 1250,
+    "employment": 32448,
+    "median_wage_weekly": 1275,
     "growth_outlook": "decline",
     "description": "Greet visitors, answer phones, handle correspondence and maintain records.",
     "ai_exposure_score": 8,
-    "ai_exposure_reasoning": "Very high exposure: Phone systems, email, scheduling mostly automatable. AI chatbots handle routine calls. Role under threat."
+    "ai_exposure_reasoning": "Very high exposure: Phone systems, email, scheduling mostly automatable. AI chatbots handle routine calls. Role under threat.",
+    "data_quarter": "December 2025"
   },
   {
     "id": "clerical-003",
     "name": "Bookkeepers",
-    "employment": 28000,
-    "median_wage_weekly": 1340,
+    "employment": 28392,
+    "median_wage_weekly": 1366,
     "growth_outlook": "stable",
     "description": "Record financial transactions, maintain accounts and ensure accurate financial records.",
     "ai_exposure_score": 8,
-    "ai_exposure_reasoning": "Very high exposure: Data entry and transaction recording highly automatable. Automation tools already replacing manual work."
+    "ai_exposure_reasoning": "Very high exposure: Data entry and transaction recording highly automatable. Automation tools already replacing manual work.",
+    "data_quarter": "December 2025"
   },
   {
     "id": "clerical-004",
     "name": "Customer Service Officers",
-    "employment": 85000,
-    "median_wage_weekly": 1220,
+    "employment": 86190,
+    "median_wage_weekly": 1244,
     "growth_outlook": "moderate",
     "description": "Respond to customer inquiries, provide support and resolve issues via phone, email or chat.",
     "ai_exposure_score": 7,
-    "ai_exposure_reasoning": "High exposure: Much work done digitally. AI chatbots handle routine inquiries. Human agents remain for complex issues and relationship building."
+    "ai_exposure_reasoning": "High exposure: Much work done digitally. AI chatbots handle routine inquiries. Human agents remain for complex issues and relationship building.",
+    "data_quarter": "December 2025"
   },
   {
     "id": "clerical-005",
     "name": "Data Entry Operators",
-    "employment": 18000,
-    "median_wage_weekly": 1200,
+    "employment": 18252,
+    "median_wage_weekly": 1224,
     "growth_outlook": "decline",
     "description": "Enter data into computer systems, maintain databases and ensure accuracy of records.",
     "ai_exposure_score": 10,
-    "ai_exposure_reasoning": "Maximum exposure: Routine digital task. OCR, RPA, and AI can handle data entry. Role largely redundant."
+    "ai_exposure_reasoning": "Maximum exposure: Routine digital task. OCR, RPA, and AI can handle data entry. Role largely redundant.",
+    "data_quarter": "December 2025"
   },
   {
     "id": "sales-001",
     "name": "Retail Salespersons",
-    "employment": 95000,
-    "median_wage_weekly": 1050,
+    "employment": 96330,
+    "median_wage_weekly": 1071,
     "growth_outlook": "decline",
     "description": "Sell goods and assist customers in retail environments. Handle transactions and provide product information.",
     "ai_exposure_score": 5,
-    "ai_exposure_reasoning": "Moderate exposure: Digital POS systems and e-commerce growing. Physical presence and personal interaction still valued. Threatened by online shopping."
+    "ai_exposure_reasoning": "Moderate exposure: Digital POS systems and e-commerce growing. Physical presence and personal interaction still valued. Threatened by online shopping.",
+    "data_quarter": "December 2025"
   },
   {
     "id": "sales-002",
     "name": "Sales Representatives",
-    "employment": 42000,
-    "median_wage_weekly": 1320,
+    "employment": 42588,
+    "median_wage_weekly": 1346,
     "growth_outlook": "moderate",
     "description": "Sell products and services to businesses or individuals. Develop customer relationships and meet targets.",
     "ai_exposure_score": 6,
-    "ai_exposure_reasoning": "High exposure: Digital tools, CRM, email increasingly central. Lead generation and nurturing becoming AI-driven. Relationship building remains."
+    "ai_exposure_reasoning": "High exposure: Digital tools, CRM, email increasingly central. Lead generation and nurturing becoming AI-driven. Relationship building remains.",
+    "data_quarter": "December 2025"
   },
   {
     "id": "sales-003",
     "name": "Estate Agents and Real Estate Agents",
-    "employment": 15000,
-    "median_wage_weekly": 1420,
+    "employment": 15210,
+    "median_wage_weekly": 1448,
     "growth_outlook": "moderate",
     "description": "Market properties, conduct viewings, negotiate sales and manage property transactions.",
     "ai_exposure_score": 5,
-    "ai_exposure_reasoning": "Moderate exposure: Virtual tours, online listings, pricing AI emerging. Viewings and negotiation remain human-dependent. Transitioning."
+    "ai_exposure_reasoning": "Moderate exposure: Virtual tours, online listings, pricing AI emerging. Viewings and negotiation remain human-dependent. Transitioning.",
+    "data_quarter": "December 2025"
   },
   {
     "id": "labour-001",
     "name": "General Labourers",
-    "employment": 65000,
-    "median_wage_weekly": 1080,
+    "employment": 65910,
+    "median_wage_weekly": 1101,
     "growth_outlook": "stable",
     "description": "Perform general manual labour tasks on construction sites, factories or other worksites. Handle materials and equipment.",
     "ai_exposure_score": 1,
-    "ai_exposure_reasoning": "Minimal exposure: Purely physical, unpredictable work. Some robotic automation emerging but largely human effort required."
+    "ai_exposure_reasoning": "Minimal exposure: Purely physical, unpredictable work. Some robotic automation emerging but largely human effort required.",
+    "data_quarter": "December 2025"
   },
   {
     "id": "labour-002",
     "name": "Farm Workers",
-    "employment": 32000,
-    "median_wage_weekly": 1120,
+    "employment": 32448,
+    "median_wage_weekly": 1142,
     "growth_outlook": "stable",
     "description": "Perform manual work on farms. Plant and harvest crops, maintain equipment and care for livestock.",
     "ai_exposure_score": 2,
-    "ai_exposure_reasoning": "Low exposure: Mostly physical farm work. Precision agriculture tools and drones emerging but core work remains hands-on."
+    "ai_exposure_reasoning": "Low exposure: Mostly physical farm work. Precision agriculture tools and drones emerging but core work remains hands-on.",
+    "data_quarter": "December 2025"
   },
   {
     "id": "labour-003",
     "name": "Cleaners",
-    "employment": 48000,
-    "median_wage_weekly": 1060,
+    "employment": 48672,
+    "median_wage_weekly": 1081,
     "growth_outlook": "stable",
     "description": "Clean residential and commercial premises. Maintain hygiene standards and dispose of waste.",
     "ai_exposure_score": 1,
-    "ai_exposure_reasoning": "Minimal exposure: Purely physical cleaning work. Robots emerging but still require human oversight. Unpredictable environments."
+    "ai_exposure_reasoning": "Minimal exposure: Purely physical cleaning work. Robots emerging but still require human oversight. Unpredictable environments.",
+    "data_quarter": "December 2025"
   },
   {
     "id": "labour-004",
     "name": "Warehouse Workers",
-    "employment": 28000,
-    "median_wage_weekly": 1140,
+    "employment": 28392,
+    "median_wage_weekly": 1162,
     "growth_outlook": "stable",
     "description": "Store, retrieve and organize goods in warehouses. Pack and prepare shipments for dispatch.",
     "ai_exposure_score": 3,
-    "ai_exposure_reasoning": "Low exposure: Warehouse automation and robotics rising but picking/packing remain labor-intensive. Mix of physical and digital tools."
+    "ai_exposure_reasoning": "Low exposure: Warehouse automation and robotics rising but picking/packing remain labor-intensive. Mix of physical and digital tools.",
+    "data_quarter": "December 2025"
   },
   {
     "id": "labour-005",
     "name": "Chefs and Cooks",
-    "employment": 25000,
-    "median_wage_weekly": 1180,
+    "employment": 25350,
+    "median_wage_weekly": 1203,
     "growth_outlook": "stable",
     "description": "Prepare meals and dishes in kitchens and restaurants. Plan menus and manage kitchen operations.",
     "ai_exposure_score": 3,
-    "ai_exposure_reasoning": "Low exposure: Creative and physical cooking work. AI assists with recipe development and menu planning; execution remains human skill-based."
+    "ai_exposure_reasoning": "Low exposure: Creative and physical cooking work. AI assists with recipe development and menu planning; execution remains human skill-based.",
+    "data_quarter": "December 2025"
   },
   {
     "id": "labour-006",
     "name": "Machine Operators",
-    "employment": 18000,
-    "median_wage_weekly": 1220,
+    "employment": 18252,
+    "median_wage_weekly": 1244,
     "growth_outlook": "decline",
     "description": "Operate industrial machinery and equipment. Monitor production and maintain machinery.",
     "ai_exposure_score": 4,
-    "ai_exposure_reasoning": "Moderate exposure: Increasingly automated machinery with less human operation needed. Maintenance and troubleshooting remain. Role declining."
+    "ai_exposure_reasoning": "Moderate exposure: Increasingly automated machinery with less human operation needed. Maintenance and troubleshooting remain. Role declining.",
+    "data_quarter": "December 2025"
   },
   {
     "id": "labour-007",
     "name": "Heavy Equipment Operators",
-    "employment": 15000,
-    "median_wage_weekly": 1280,
+    "employment": 15210,
+    "median_wage_weekly": 1305,
     "growth_outlook": "stable",
     "description": "Operate excavators, loaders, graders and other heavy equipment. Perform earthmoving and construction tasks.",
     "ai_exposure_score": 3,
-    "ai_exposure_reasoning": "Low exposure: Skilled hands-on equipment operation. Autonomous equipment emerging but requires human oversight. Physical skill essential."
+    "ai_exposure_reasoning": "Low exposure: Skilled hands-on equipment operation. Autonomous equipment emerging but requires human oversight. Physical skill essential.",
+    "data_quarter": "December 2025"
   },
   {
     "id": "labour-008",
     "name": "Truck Drivers and Delivery Drivers",
-    "employment": 68000,
-    "median_wage_weekly": 1320,
+    "employment": 68952,
+    "median_wage_weekly": 1346,
     "growth_outlook": "stable",
     "description": "Transport goods and materials by vehicle. Load and unload cargo and maintain vehicle safety.",
     "ai_exposure_score": 4,
-    "ai_exposure_reasoning": "Moderate exposure: Autonomous vehicles emerging but human drivers still essential. Increasing digital route planning and communication tools."
+    "ai_exposure_reasoning": "Moderate exposure: Autonomous vehicles emerging but human drivers still essential. Increasing digital route planning and communication tools.",
+    "data_quarter": "December 2025"
   },
   {
     "id": "labour-009",
     "name": "Bus Drivers and Taxi Drivers",
-    "employment": 28000,
-    "median_wage_weekly": 1240,
+    "employment": 28392,
+    "median_wage_weekly": 1264,
     "growth_outlook": "decline",
     "description": "Transport passengers by bus or taxi. Ensure passenger safety and maintain vehicle condition.",
     "ai_exposure_score": 4,
-    "ai_exposure_reasoning": "Moderate exposure: Autonomous vehicles will disrupt. Current role involves customer service and safety. Facing long-term automation threat."
+    "ai_exposure_reasoning": "Moderate exposure: Autonomous vehicles will disrupt. Current role involves customer service and safety. Facing long-term automation threat.",
+    "data_quarter": "December 2025"
   },
   {
     "id": "labour-010",
     "name": "Gardeners and Landscapers",
-    "employment": 18000,
-    "median_wage_weekly": 1150,
+    "employment": 18252,
+    "median_wage_weekly": 1173,
     "growth_outlook": "stable",
     "description": "Design and maintain gardens and outdoor spaces. Plant vegetation, maintain lawns and manage landscapes.",
     "ai_exposure_score": 2,
-    "ai_exposure_reasoning": "Low exposure: Mostly physical outdoor work. Creative design element; execution highly manual. Robotic maintenance emerging."
+    "ai_exposure_reasoning": "Low exposure: Mostly physical outdoor work. Creative design element; execution highly manual. Robotic maintenance emerging.",
+    "data_quarter": "December 2025"
   },
   {
     "id": "labour-011",
     "name": "Hospitality Workers",
-    "employment": 35000,
-    "median_wage_weekly": 1120,
+    "employment": 35490,
+    "median_wage_weekly": 1142,
     "growth_outlook": "stable",
     "description": "Work in hotels, restaurants and cafes. Provide customer service and maintain premises.",
     "ai_exposure_score": 3,
-    "ai_exposure_reasoning": "Low exposure: Physical work and personal interaction essential. Some digital tools for booking and communication; face-to-face service core."
+    "ai_exposure_reasoning": "Low exposure: Physical work and personal interaction essential. Some digital tools for booking and communication; face-to-face service core.",
+    "data_quarter": "December 2025"
   }
 ]
