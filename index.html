@@ -595,19 +595,19 @@
                 <div class="legend-title">AI Exposure</div>
                 <div class="legend-items">
                     <div class="legend-item">
-                        <div class="legend-color" style="background: #10b981;"></div>
+                        <div class="legend-color" style="background: #8b9d8a;"></div>
                         <div class="legend-text">Low (0–3)</div>
                     </div>
                     <div class="legend-item">
-                        <div class="legend-color" style="background: #f59e0b;"></div>
+                        <div class="legend-color" style="background: #a39779;"></div>
                         <div class="legend-text">Moderate (4–5)</div>
                     </div>
                     <div class="legend-item">
-                        <div class="legend-color" style="background: #d97706;"></div>
+                        <div class="legend-color" style="background: #b8824d;"></div>
                         <div class="legend-text">High (6–7)</div>
                     </div>
                     <div class="legend-item">
-                        <div class="legend-color" style="background: #dc2626;"></div>
+                        <div class="legend-color" style="background: #7d3e39;"></div>
                         <div class="legend-text">Very High (8–10)</div>
                     </div>
                 </div>
@@ -631,32 +631,33 @@
         let colorScheme = 'ai_exposure';
         let sortBy = 'employment';
         
+        // Modern muted palette - sophisticated, editorial
         // AI Exposure color scale
         function getAIExposureColor(score) {
-            if (score <= 3) return '#10b981'; // Green - low
-            if (score <= 5) return '#f59e0b'; // Amber - moderate
-            if (score <= 7) return '#d97706'; // Orange - high
-            return '#dc2626'; // Red - very high
+            if (score <= 3) return '#8b9d8a'; // Sage green - low
+            if (score <= 5) return '#a39779'; // Warm beige - moderate
+            if (score <= 7) return '#b8824d'; // Rust - high
+            return '#7d3e39'; // Deep burgundy - very high
         }
         
         // Growth color scale
         function getGrowthColor(outlook) {
             const colors = {
-                'strong': '#059669',
-                'moderate': '#3b82f6',
-                'stable': '#9ca3af',
-                'decline': '#dc2626'
+                'strong': '#7a9d7f',
+                'moderate': '#8a97a1',
+                'stable': '#9b9b8f',
+                'decline': '#7d4a47'
             };
-            return colors[outlook] || '#9ca3af';
+            return colors[outlook] || '#9b9b8f';
         }
         
         // Wage color scale
         function getWageColor(wage) {
-            if (wage < 1100) return '#dc2626';
-            if (wage < 1300) return '#d97706';
-            if (wage < 1600) return '#f59e0b';
-            if (wage < 2000) return '#eab308';
-            return '#10b981';
+            if (wage < 1100) return '#7d4a47';
+            if (wage < 1300) return '#b8824d';
+            if (wage < 1600) return '#a39779';
+            if (wage < 2000) return '#8b9d8a';
+            return '#7a9d7f';
         }
         
         function getColor(d, scheme) {
@@ -722,22 +723,21 @@
                 .append('g')
                 .attr('transform', `translate(${margin.left},${margin.top})`);
             
-            // Filter and sort visible data
+            // Filter visible data first
             let visibleData = data.filter(d => !d.hidden);
-            visibleData = getSortedData(visibleData, sortBy);
             
-            // Create hierarchy
+            // Create hierarchy WITHOUT pre-sorting
             const root = d3.hierarchy({children: visibleData})
-                .sum(d => d.employment)
-                .sort((a, b) => b.value - a.value);
+                .sum(d => d.employment);
             
-            // Create treemap
+            // Apply D3's treemap algorithm (it naturally handles layout)
             const treemap = d3.treemap()
                 .size([width, height])
                 .paddingLeft(2)
                 .paddingRight(2)
                 .paddingTop(2)
-                .paddingBottom(2);
+                .paddingBottom(2)
+                .round(true);
             
             treemap(root);
             
@@ -779,15 +779,15 @@
                 .attr('y', d => (d.y1 - d.y0) / 2)
                 .style('font-size', d => {
                     const area = (d.x1 - d.x0) * (d.y1 - d.y0);
-                    if (area < 2000) return '0px';
-                    if (area < 4000) return '12px';
-                    if (area < 8000) return '13px';
-                    return '14px';
+                    if (area < 2500) return '0px';
+                    if (area < 5000) return '11px';
+                    if (area < 10000) return '12px';
+                    return '13px';
                 })
                 .text(d => {
                     const w = d.x1 - d.x0;
                     const h = d.y1 - d.y0;
-                    if (w < 90 || h < 50) return '';
+                    if (w < 85 || h < 48) return '';
                     return d.data.name.split(' ').slice(0, 3).join('\n');
                 });
             
