@@ -210,54 +210,8 @@
         
         #chart {
             width: 100%;
-            min-height: 700px;
+            min-height: 800px;
             display: block;
-        }
-        
-        .chart-legend {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: rgba(255, 255, 255, 0.98);
-            border: 1px solid #e5e7eb;
-            border-radius: 8px;
-            padding: 16px 18px;
-            z-index: 10;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
-        
-        .legend-title {
-            font-size: 0.75em;
-            font-weight: 700;
-            color: #6b7280;
-            text-transform: uppercase;
-            letter-spacing: 0.4px;
-            margin-bottom: 10px;
-        }
-        
-        .legend-items {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-        
-        .legend-item {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .legend-color {
-            width: 18px;
-            height: 18px;
-            border-radius: 4px;
-            border: 1px solid rgba(0, 0, 0, 0.1);
-        }
-        
-        .legend-text {
-            font-size: 0.85em;
-            color: #374151;
-            font-weight: 500;
         }
         
         .node {
@@ -283,6 +237,16 @@
             dominant-baseline: middle;
             fill: white;
             text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .group-label {
+            pointer-events: none;
+            font-size: 16px;
+            font-weight: 700;
+            text-anchor: middle;
+            dominant-baseline: middle;
+            fill: white;
+            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
         }
         
         .tooltip {
@@ -342,7 +306,7 @@
         <div class="header-content">
             <div class="byline">NZ Labour Market Analysis</div>
             <h1>Where AI Will Reshape Work</h1>
-            <p class="lede">Understanding occupations at risk of automation in the New Zealand economy. Covers the top 100+ occupations by employment. Data: December 2025 quarter (Stats NZ). Updated March 26, 2026.</p>
+            <p class="lede">Understanding occupations at risk of automation in the New Zealand economy. Grouped by major occupational sector. Data: December 2025 quarter (Stats NZ). Updated March 26, 2026.</p>
         </div>
     </div>
     
@@ -350,7 +314,7 @@
         <div class="explainer">
             <div>
                 <h3>What You're Looking At</h3>
-                <p>Each rectangle represents one occupation. The <strong>size</strong> shows how many people work in that role. The <strong>color</strong> shows your selected metric—toggle between AI exposure, wage, and growth outlook.</p>
+                <p>Each rectangle represents one occupation. Size shows employment numbers. Color indicates AI exposure risk. Occupations are grouped by major sector (Managers, Professionals, Technicians, etc.).</p>
             </div>
             <div>
                 <h3>How to Use It</h3>
@@ -365,19 +329,19 @@
         <div class="metrics">
             <div class="metric">
                 <div class="metric-label">Total Employment</div>
-                <div class="metric-value" id="totalEmployment">—</div>
+                <div class="metric-value" id="totalEmployment">0</div>
             </div>
             <div class="metric">
                 <div class="metric-label">Avg AI Exposure</div>
-                <div class="metric-value" id="avgExposure">—</div>
+                <div class="metric-value" id="avgExposure">0/10</div>
             </div>
             <div class="metric">
                 <div class="metric-label">Occupations</div>
-                <div class="metric-value" id="totalOccupations">—</div>
+                <div class="metric-value" id="totalOccupations">0</div>
             </div>
             <div class="metric">
                 <div class="metric-label">High Risk (8–10)</div>
-                <div class="metric-value" id="highRisk">—</div>
+                <div class="metric-value" id="highRisk">0</div>
             </div>
         </div>
         
@@ -407,33 +371,12 @@
         </div>
         
         <div class="chart-wrapper">
-            <div class="chart-legend">
-                <div class="legend-title">AI Exposure Risk</div>
-                <div class="legend-items">
-                    <div class="legend-item">
-                        <div class="legend-color" style="background: #8b9d8a;"></div>
-                        <div class="legend-text">Low (0–3)</div>
-                    </div>
-                    <div class="legend-item">
-                        <div class="legend-color" style="background: #a39779;"></div>
-                        <div class="legend-text">Moderate (4–5)</div>
-                    </div>
-                    <div class="legend-item">
-                        <div class="legend-color" style="background: #b8824d;"></div>
-                        <div class="legend-text">High (6–7)</div>
-                    </div>
-                    <div class="legend-item">
-                        <div class="legend-color" style="background: #7d3e39;"></div>
-                        <div class="legend-text">Very High (8–10)</div>
-                    </div>
-                </div>
-            </div>
             <svg id="chart"></svg>
         </div>
         
         <div class="methodology">
             <h3>About This Data</h3>
-            <p><strong>Coverage:</strong> 108 top occupations by employment in New Zealand. <strong>Source:</strong> Stats NZ Household Labour Force Survey, December 2025 quarter. Employment figures and median weekly wages updated for Dec 2025. <strong>AI scores:</strong> Based on task automation risk using Claude 3.5 Sonnet. <strong>Note:</strong> High scores indicate where AI will reshape work, not where jobs disappear. Wage figures reflect 2% annual wage inflation (LCI Dec 2025).</p>
+            <p><strong>Coverage:</strong> 172 occupations grouped by major occupational sector. <strong>Source:</strong> Stats NZ Household Labour Force Survey, December 2025 quarter. Employment figures and median weekly wages updated for Dec 2025. <strong>AI scores:</strong> Based on task automation risk using Claude 3.5 Sonnet. <strong>Note:</strong> High scores indicate where AI will reshape work, not where jobs disappear. Wage figures reflect 2% annual wage inflation (LCI Dec 2025).</p>
         </div>
     </div>
     
@@ -445,6 +388,19 @@
         let currentSort = 'ai_exposure_desc';
         let currentColor = 'ai_exposure';
         let searchQuery = '';
+        
+        // Group occupations by sector
+        function groupBySector(data) {
+            const groups = {};
+            data.forEach(d => {
+                const sector = d.group;
+                if (!groups[sector]) {
+                    groups[sector] = [];
+                }
+                groups[sector].push(d);
+            });
+            return groups;
+        }
         
         // MODERN MUTED PALETTE
         function getColorForAI(score) {
@@ -490,15 +446,13 @@
             } else if (currentSort === 'alphabetical') {
                 filteredData.sort((a, b) => a.name.localeCompare(b.name));
             }
-            
-            console.log('Sort:', currentSort, '| Filtered:', filteredData.length, '| First:', filteredData[0]?.name);
         }
         
         function draw() {
             applyFilters();
             
             const width = document.querySelector('.chart-wrapper').clientWidth;
-            const height = 700;
+            const height = 800;
             
             d3.select('#chart').selectAll('*').remove();
             
@@ -506,35 +460,89 @@
                 .attr('width', width)
                 .attr('height', height);
             
-            const root = d3.hierarchy({children: filteredData})
-                .sum(d => d.employment);
+            // Group by sector
+            const groups = groupBySector(filteredData);
+            const sectors = Object.keys(groups);
             
-            const treemap = d3.treemap().size([width, height]).paddingTop(0).paddingLeft(2).paddingRight(2).paddingBottom(2);
+            // Create a hierarchy
+            const hierarchyData = {
+                name: 'root',
+                children: sectors.map(sector => ({
+                    name: sector,
+                    children: groups[sector]
+                }))
+            };
+            
+            const root = d3.hierarchy(hierarchyData)
+                .sum(d => d.employment || 0)
+                .sort((a, b) => b.value - a.value);
+            
+            const treemap = d3.treemap()
+                .size([width, height])
+                .paddingTop(40)
+                .paddingLeft(10)
+                .paddingRight(10)
+                .paddingBottom(10);
+            
             treemap(root);
             
-            const g = svg.selectAll('g').data(root.leaves()).enter().append('g')
-                .attr('transform', d => `translate(${d.x0},${d.y0})`);
+            // Draw sector groups
+            const sectorGroups = svg.selectAll('.sector-group')
+                .data(root.children)
+                .enter()
+                .append('g')
+                .attr('class', 'sector-group');
             
-            g.append('rect')
+            // Sector backgrounds
+            sectorGroups.append('rect')
+                .attr('x', d => d.x0)
+                .attr('y', d => d.y0)
+                .attr('width', d => d.x1 - d.x0)
+                .attr('height', d => d.y1 - d.y0)
+                .attr('fill', 'none')
+                .attr('stroke', '#ddd')
+                .attr('stroke-width', 2);
+            
+            // Sector labels
+            sectorGroups.append('text')
+                .attr('class', 'group-label')
+                .attr('x', d => d.x0 + (d.x1 - d.x0) / 2)
+                .attr('y', d => d.y0 + 25)
+                .style('font-size', '14px')
+                .style('fill', '#6b7280')
+                .style('text-shadow', 'none')
+                .style('font-weight', '600')
+                .text(d => d.data.name);
+            
+            // Draw occupations
+            const occupationGroups = svg.selectAll('.occupation')
+                .data(root.leaves())
+                .enter()
+                .append('g')
+                .attr('class', 'node occupation');
+            
+            occupationGroups.append('rect')
+                .attr('x', d => d.x0)
+                .attr('y', d => d.y0)
                 .attr('width', d => d.x1 - d.x0)
                 .attr('height', d => d.y1 - d.y0)
                 .attr('fill', d => getColor(d.data))
                 .attr('stroke', 'white')
-                .attr('stroke-width', 2)
+                .attr('stroke-width', 1.5)
                 .on('mouseenter', (e, d) => showTooltip(e, d.data))
                 .on('mouseleave', () => hideTooltip());
             
-            g.append('text')
+            occupationGroups.append('text')
                 .attr('class', 'node-label')
-                .attr('x', d => (d.x1 - d.x0) / 2)
-                .attr('y', d => (d.y1 - d.y0) / 2)
+                .attr('x', d => d.x0 + (d.x1 - d.x0) / 2)
+                .attr('y', d => d.y0 + (d.y1 - d.y0) / 2)
                 .style('font-size', d => {
                     const area = (d.x1 - d.x0) * (d.y1 - d.y0);
-                    return area < 4000 ? '0px' : (area < 8000 ? '12px' : '13px');
+                    return area < 2000 ? '0px' : (area < 5000 ? '11px' : '12px');
                 })
                 .text(d => {
-                    if ((d.x1 - d.x0) < 85 || (d.y1 - d.y0) < 48) return '';
-                    return d.data.name.split(' ').slice(0, 3).join('\n');
+                    if ((d.x1 - d.x0) < 60 || (d.y1 - d.y0) < 40) return '';
+                    return d.data.name.split(' ').slice(0, 2).join('\n');
                 });
             
             updateStats();
@@ -542,7 +550,7 @@
         
         function updateStats() {
             const total = filteredData.reduce((s, d) => s + d.employment, 0);
-            const avgAI = filteredData.reduce((s, d) => s + d.ai_exposure_score, 0) / filteredData.length;
+            const avgAI = filteredData.length > 0 ? (filteredData.reduce((s, d) => s + d.ai_exposure_score, 0) / filteredData.length) : 0;
             const highRisk = filteredData.filter(d => d.ai_exposure_score >= 8).length;
             
             document.getElementById('totalEmployment').textContent = total.toLocaleString();
@@ -606,7 +614,7 @@
                 allData = d;
                 draw();
                 window.addEventListener('resize', draw);
-                console.log('✓ Loaded', d.length, 'occupations. Muted palette active.');
+                console.log('✓ Loaded', d.length, 'occupations grouped by sector.');
             })
             .catch(err => {
                 document.getElementById('chart').innerHTML = '<text x="50%" y="50%" text-anchor="middle" fill="#dc2626">Error loading data</text>';
