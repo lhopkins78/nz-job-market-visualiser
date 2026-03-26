@@ -480,7 +480,6 @@
         
         function draw() {
             applyFilters();
-            const sortedData = sortData(filteredData);
             
             const width = document.querySelector('.chart-wrapper').clientWidth;
             const height = 800;
@@ -491,21 +490,67 @@
                 .attr('width', width)
                 .attr('height', height);
             
-            // Create hierarchy WITHOUT grouping by sector - just flat list sorted globally
-            const root = d3.hierarchy({ name: 'root', children: sortedData })
-                .sum(d => d.employment || 0)
-                .sort((a, b) => b.value - a.value);
+            // Group by sector, then sort WITHIN each sector
+            const groups = groupBySector(filteredData);
+            const sectors = Object.keys(groups);
+            
+            // Sort occupations within each sector
+            Object.keys(groups).forEach(sector => {
+                groups[sector] = sortData(groups[sector]);
+            });
+            
+            // Create hierarchy WITH sector grouping
+            const hierarchyData = {
+                name: 'root',
+                children: sectors.map(sector => ({
+                    name: sector,
+                    children: groups[sector]
+                }))
+            };
+            
+            const root = d3.hierarchy(hierarchyData)
+                .sum(d => d.employment || 0);
+            
+            // Do NOT call .sort() - respect our manual sort order
             
             const treemap = d3.treemap()
                 .size([width, height])
-                .paddingTop(0)
-                .paddingLeft(2)
-                .paddingRight(2)
-                .paddingBottom(2);
+                .paddingTop(28)
+                .paddingLeft(6)
+                .paddingRight(6)
+                .paddingBottom(6);
             
             treemap(root);
             
-            // Draw occupations - now sorted globally
+            // Draw sector groups
+            const sectorGroups = svg.selectAll('.sector-group')
+                .data(root.children)
+                .enter()
+                .append('g')
+                .attr('class', 'sector-group');
+            
+            // Sector backgrounds
+            sectorGroups.append('rect')
+                .attr('x', d => d.x0)
+                .attr('y', d => d.y0)
+                .attr('width', d => d.x1 - d.x0)
+                .attr('height', d => d.y1 - d.y0)
+                .attr('fill', 'rgba(255,255,255,0.5)')
+                .attr('stroke', '#d1d5db')
+                .attr('stroke-width', 1.5);
+            
+            // Sector labels
+            sectorGroups.append('text')
+                .attr('class', 'group-label')
+                .attr('x', d => d.x0 + 6)
+                .attr('y', d => d.y0 + 16)
+                .style('font-size', '11px')
+                .style('fill', '#6b7280')
+                .style('text-shadow', 'none')
+                .style('font-weight', '600')
+                .text(d => d.data.name);
+            
+            // Draw occupations
             const occupationGroups = svg.selectAll('.occupation')
                 .data(root.leaves())
                 .enter()
@@ -518,9 +563,8 @@
                 .attr('width', d => d.x1 - d.x0)
                 .attr('height', d => d.y1 - d.y0)
                 .attr('fill', d => getColor(d.data))
-                .attr('stroke', '#fff')
+                .attr('stroke', 'white')
                 .attr('stroke-width', 1.5)
-                .style('opacity', 0.9)
                 .on('mouseenter', (e, d) => showTooltip(e, d.data))
                 .on('mouseleave', () => hideTooltip());
             
@@ -530,12 +574,11 @@
                 .attr('y', d => d.y0 + (d.y1 - d.y0) / 2)
                 .style('font-size', d => {
                     const area = (d.x1 - d.x0) * (d.y1 - d.y0);
-                    return area < 1800 ? '0px' : (area < 4000 ? '10px' : '11px');
+                    return area < 1500 ? '0px' : (area < 3500 ? '9px' : '10px');
                 })
                 .text(d => {
-                    if ((d.x1 - d.x0) < 55 || (d.y1 - d.y0) < 35) return '';
-                    const lines = d.data.name.split(' ');
-                    return lines.slice(0, 2).join('\n');
+                    if ((d.x1 - d.x0) < 50 || (d.y1 - d.y0) < 30) return '';
+                    return d.data.name.split(' ').slice(0, 2).join('\n');
                 });
             
             updateStats();
