@@ -435,21 +435,25 @@
                 if (!searchQuery) return true;
                 return d.name.toLowerCase().includes(searchQuery.toLowerCase());
             });
-            
-            // SORT
+        }
+        
+        function sortData(data) {
+            const sorted = [...data];
             if (currentSort === 'employment') {
-                filteredData.sort((a, b) => b.employment - a.employment);
+                sorted.sort((a, b) => b.employment - a.employment);
             } else if (currentSort === 'ai_exposure_desc') {
-                filteredData.sort((a, b) => b.ai_exposure_score - a.ai_exposure_score);
+                sorted.sort((a, b) => b.ai_exposure_score - a.ai_exposure_score);
             } else if (currentSort === 'wage_desc') {
-                filteredData.sort((a, b) => b.median_wage_weekly - a.median_wage_weekly);
+                sorted.sort((a, b) => b.median_wage_weekly - a.median_wage_weekly);
             } else if (currentSort === 'alphabetical') {
-                filteredData.sort((a, b) => a.name.localeCompare(b.name));
+                sorted.sort((a, b) => a.name.localeCompare(b.name));
             }
+            return sorted;
         }
         
         function draw() {
             applyFilters();
+            const sortedData = sortData(filteredData);
             
             const width = document.querySelector('.chart-wrapper').clientWidth;
             const height = 800;
@@ -460,8 +464,8 @@
                 .attr('width', width)
                 .attr('height', height);
             
-            // Group by sector
-            const groups = groupBySector(filteredData);
+            // Group by sector (but preserve sort order within sectors)
+            const groups = groupBySector(sortedData);
             const sectors = Object.keys(groups);
             
             // Create a hierarchy
