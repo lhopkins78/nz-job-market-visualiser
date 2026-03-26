@@ -439,6 +439,7 @@
         
         function sortData(data) {
             const sorted = [...data];
+            console.log('Sorting', data.length, 'items by:', currentSort);
             if (currentSort === 'employment') {
                 sorted.sort((a, b) => b.employment - a.employment);
             } else if (currentSort === 'ai_exposure_desc') {
@@ -448,6 +449,7 @@
             } else if (currentSort === 'alphabetical') {
                 sorted.sort((a, b) => a.name.localeCompare(b.name));
             }
+            console.log('First 5 after sort:', sorted.slice(0, 5).map(d => ({ name: d.name, ai: d.ai_exposure_score, emp: d.employment })));
             return sorted;
         }
         
@@ -594,6 +596,7 @@
         
         document.getElementById('sortBy').addEventListener('change', e => {
             currentSort = e.target.value;
+            console.log('Sort changed to:', currentSort);
             draw();
         });
         
