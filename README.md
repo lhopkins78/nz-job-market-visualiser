@@ -54,31 +54,6 @@ Scoring is based on **Andrej Karpathy's AI Jobs framework** (https://github.com/
 
 ---
 
-## 🚀 Quick Start
-
-### Option 1: View in Browser (Easiest)
-```bash
-# Navigate to the folder
-cd ~/openclaw-nz-jobs
-
-# Open in browser
-open index.html          # macOS
-xdg-open index.html      # Linux
-start index.html         # Windows
-```
-
-### Option 2: Serve Locally
-```bash
-cd ~/openclaw-nz-jobs
-
-# Python 3
-python3 -m http.server 8000
-
-# Then open: http://localhost:8000
-```
-
----
-
 ## 🎨 Features
 
 ### Interactive Controls
