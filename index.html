@@ -371,6 +371,10 @@
         </div>
         
         <div class="chart-wrapper">
+            <div class="chart-legend" style="display: none; position: absolute; top: 20px; right: 20px; background: rgba(255, 255, 255, 0.98); border: 1px solid #e5e7eb; border-radius: 8px; padding: 16px 18px; z-index: 10; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);">
+                <div style="font-size: 0.75em; font-weight: 700; color: #6b7280; text-transform: uppercase; letter-spacing: 0.4px; margin-bottom: 10px;">Color Scale</div>
+                <div id="legend-content"></div>
+            </div>
             <svg id="chart"></svg>
         </div>
         
@@ -402,25 +406,33 @@
             return groups;
         }
         
-        // MODERN MUTED PALETTE
+        // VIRIDIS COLOR SCALE (like R's viridis)
+        function viridisColor(value, min, max) {
+            // Normalize value to 0-1
+            const norm = (value - min) / (max - min);
+            
+            // Viridis palette: purple -> blue -> green -> yellow
+            const viridis = [
+                '#440154', '#482878', '#3e4a89', '#31688e', '#26828e', 
+                '#35b779', '#6ece58', '#b5de2b', '#fde724'
+            ];
+            const idx = Math.floor(norm * (viridis.length - 1));
+            return viridis[Math.max(0, Math.min(idx, viridis.length - 1))];
+        }
+        
         function getColorForAI(score) {
-            if (score <= 3) return '#8b9d8a';      // Sage green
-            if (score <= 5) return '#a39779';      // Warm beige
-            if (score <= 7) return '#b8824d';      // Rust
-            return '#7d3e39';                      // Deep burgundy
+            // Score is 1-10, map to viridis
+            return viridisColor(score, 1, 10);
         }
         
         function getColorForWage(wage) {
-            if (wage < 1100) return '#7d3e39';
-            if (wage < 1300) return '#b8824d';
-            if (wage < 1600) return '#a39779';
-            if (wage < 2000) return '#8b9d8a';
-            return '#7a9d7f';
+            // Wage range typically 1000-2000
+            return viridisColor(wage, 1000, 2000);
         }
         
         function getColorForGrowth(outlook) {
-            const map = { 'strong': '#7a9d7f', 'moderate': '#8a97a1', 'stable': '#9b9b8f', 'decline': '#7d4a47' };
-            return map[outlook] || '#9b9b8f';
+            const map = { 'strong': '#fde724', 'moderate': '#35b779', 'stable': '#31688e', 'decline': '#440154' };
+            return map[outlook] || '#31688e';
         }
         
         function getColor(d) {
@@ -527,6 +539,82 @@
                 });
             
             updateStats();
+            updateLegend();
+        }
+        
+        function updateLegend() {
+            const legend = document.querySelector('.chart-legend');
+            const content = document.getElementById('legend-content');
+            
+            if (currentColor === 'ai_exposure') {
+                legend.style.display = 'block';
+                content.innerHTML = `
+                    <div style="display: flex; flex-direction: column; gap: 6px; font-size: 0.85em;">
+                        <div style="display: flex; align-items: center; gap: 8px;">
+                            <div style="width: 16px; height: 16px; background: #440154; border-radius: 2px;"></div>
+                            <span>Low (1-2)</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 8px;">
+                            <div style="width: 16px; height: 16px; background: #31688e; border-radius: 2px;"></div>
+                            <span>Moderate (4-5)</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 8px;">
+                            <div style="width: 16px; height: 16px; background: #35b779; border-radius: 2px;"></div>
+                            <span>High (6-7)</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 8px;">
+                            <div style="width: 16px; height: 16px; background: #fde724; border-radius: 2px;"></div>
+                            <span>Very High (8-10)</span>
+                        </div>
+                    </div>
+                `;
+            } else if (currentColor === 'wage') {
+                legend.style.display = 'block';
+                content.innerHTML = `
+                    <div style="display: flex; flex-direction: column; gap: 6px; font-size: 0.85em;">
+                        <div style="display: flex; align-items: center; gap: 8px;">
+                            <div style="width: 16px; height: 16px; background: #440154; border-radius: 2px;"></div>
+                            <span>Low ($1000)</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 8px;">
+                            <div style="width: 16px; height: 16px; background: #31688e; border-radius: 2px;"></div>
+                            <span>Mid ($1300)</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 8px;">
+                            <div style="width: 16px; height: 16px; background: #35b779; border-radius: 2px;"></div>
+                            <span>High ($1600)</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 8px;">
+                            <div style="width: 16px; height: 16px; background: #fde724; border-radius: 2px;"></div>
+                            <span>Premium ($2000)</span>
+                        </div>
+                    </div>
+                `;
+            } else if (currentColor === 'growth') {
+                legend.style.display = 'block';
+                content.innerHTML = `
+                    <div style="display: flex; flex-direction: column; gap: 6px; font-size: 0.85em;">
+                        <div style="display: flex; align-items: center; gap: 8px;">
+                            <div style="width: 16px; height: 16px; background: #440154; border-radius: 2px;"></div>
+                            <span>Decline</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 8px;">
+                            <div style="width: 16px; height: 16px; background: #31688e; border-radius: 2px;"></div>
+                            <span>Stable</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 8px;">
+                            <div style="width: 16px; height: 16px; background: #35b779; border-radius: 2px;"></div>
+                            <span>Moderate</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 8px;">
+                            <div style="width: 16px; height: 16px; background: #fde724; border-radius: 2px;"></div>
+                            <span>Strong</span>
+                        </div>
+                    </div>
+                `;
+            } else {
+                legend.style.display = 'none';
+            }
         }
         
         function updateStats() {
@@ -567,6 +655,7 @@
         document.getElementById('colorBy').addEventListener('change', e => {
             currentColor = e.target.value;
             draw();
+            updateLegend();
         });
         
         document.getElementById('sortBy').addEventListener('change', e => {
