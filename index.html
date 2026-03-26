@@ -612,17 +612,25 @@
             draw();
         }
         
-        fetch('data.json?v=' + Date.now())
-            .then(r => r.json())
+        fetch('data.json?t=' + new Date().getTime())
+            .then(r => {
+                if (!r.ok) throw new Error('Network response: ' + r.status);
+                return r.json();
+            })
             .then(d => {
+                console.log('Data loaded:', d.length, 'occupations');
+                if (!Array.isArray(d) || d.length === 0) {
+                    throw new Error('Invalid data: expected non-empty array');
+                }
                 allData = d;
+                console.log('allData set, drawing...');
                 draw();
                 window.addEventListener('resize', draw);
                 console.log('✓ Loaded', d.length, 'occupations grouped by sector.');
             })
             .catch(err => {
-                document.getElementById('chart').innerHTML = '<text x="50%" y="50%" text-anchor="middle" fill="#dc2626">Error loading data</text>';
-                console.error(err);
+                console.error('Error:', err);
+                document.getElementById('chart').innerHTML = '<text x="50%" y="50%" text-anchor="middle" fill="#dc2626">Error: ' + err.message + '</text>';
             });
     </script>
 </body>
