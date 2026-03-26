@@ -363,16 +363,14 @@
                     <option value="alphabetical">Alphabetical</option>
                 </select>
             </div>
+            <div class="chart-legend" style="display: none; background: transparent; border: none; padding: 0; margin: 0 20px;">
+                <div id="legend-content" style="display: flex; gap: 16px; font-size: 0.8em;"></div>
+            </div>
             <div class="toolbar-spacer"></div>
             <div class="toolbar-secondary">
                 <input type="text" id="search" placeholder="Search occupation...">
                 <button class="btn" onclick="resetView()">Reset</button>
             </div>
-        </div>
-        
-        <div class="chart-legend" style="display: none; background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px; padding: 16px 18px; margin-bottom: 20px; width: fit-content;">
-            <div style="font-size: 0.75em; font-weight: 700; color: #6b7280; text-transform: uppercase; letter-spacing: 0.4px; margin-bottom: 10px;">Color Scale</div>
-            <div id="legend-content"></div>
         </div>
         
         <div class="chart-wrapper">
@@ -594,67 +592,61 @@
             if (currentColor === 'ai_exposure') {
                 legend.style.display = 'block';
                 content.innerHTML = `
-                    <div style="display: flex; flex-direction: column; gap: 6px; font-size: 0.85em;">
-                        <div style="display: flex; align-items: center; gap: 8px;">
-                            <div style="width: 16px; height: 16px; background: #440154; border-radius: 2px;"></div>
-                            <span>Low (1-2)</span>
-                        </div>
-                        <div style="display: flex; align-items: center; gap: 8px;">
-                            <div style="width: 16px; height: 16px; background: #31688e; border-radius: 2px;"></div>
-                            <span>Moderate (4-5)</span>
-                        </div>
-                        <div style="display: flex; align-items: center; gap: 8px;">
-                            <div style="width: 16px; height: 16px; background: #35b779; border-radius: 2px;"></div>
-                            <span>High (6-7)</span>
-                        </div>
-                        <div style="display: flex; align-items: center; gap: 8px;">
-                            <div style="width: 16px; height: 16px; background: #fde724; border-radius: 2px;"></div>
-                            <span>Very High (8-10)</span>
-                        </div>
+                    <div style="display: flex; align-items: center; gap: 6px;">
+                        <div style="width: 12px; height: 12px; background: #440154; border-radius: 2px;"></div>
+                        <span style="font-size: 0.75em;">Low</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 6px;">
+                        <div style="width: 12px; height: 12px; background: #31688e; border-radius: 2px;"></div>
+                        <span style="font-size: 0.75em;">Moderate</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 6px;">
+                        <div style="width: 12px; height: 12px; background: #35b779; border-radius: 2px;"></div>
+                        <span style="font-size: 0.75em;">High</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 6px;">
+                        <div style="width: 12px; height: 12px; background: #fde724; border-radius: 2px;"></div>
+                        <span style="font-size: 0.75em;">Very High</span>
                     </div>
                 `;
             } else if (currentColor === 'wage') {
                 legend.style.display = 'block';
                 content.innerHTML = `
-                    <div style="display: flex; flex-direction: column; gap: 6px; font-size: 0.85em;">
-                        <div style="display: flex; align-items: center; gap: 8px;">
-                            <div style="width: 16px; height: 16px; background: #440154; border-radius: 2px;"></div>
-                            <span>Low ($1000)</span>
-                        </div>
-                        <div style="display: flex; align-items: center; gap: 8px;">
-                            <div style="width: 16px; height: 16px; background: #31688e; border-radius: 2px;"></div>
-                            <span>Mid ($1300)</span>
-                        </div>
-                        <div style="display: flex; align-items: center; gap: 8px;">
-                            <div style="width: 16px; height: 16px; background: #35b779; border-radius: 2px;"></div>
-                            <span>High ($1600)</span>
-                        </div>
-                        <div style="display: flex; align-items: center; gap: 8px;">
-                            <div style="width: 16px; height: 16px; background: #fde724; border-radius: 2px;"></div>
-                            <span>Premium ($2000)</span>
-                        </div>
+                    <div style="display: flex; align-items: center; gap: 6px;">
+                        <div style="width: 12px; height: 12px; background: #440154; border-radius: 2px;"></div>
+                        <span style="font-size: 0.75em;">Low</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 6px;">
+                        <div style="width: 12px; height: 12px; background: #31688e; border-radius: 2px;"></div>
+                        <span style="font-size: 0.75em;">Mid</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 6px;">
+                        <div style="width: 12px; height: 12px; background: #35b779; border-radius: 2px;"></div>
+                        <span style="font-size: 0.75em;">High</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 6px;">
+                        <div style="width: 12px; height: 12px; background: #fde724; border-radius: 2px;"></div>
+                        <span style="font-size: 0.75em;">Premium</span>
                     </div>
                 `;
             } else if (currentColor === 'growth') {
                 legend.style.display = 'block';
                 content.innerHTML = `
-                    <div style="display: flex; flex-direction: column; gap: 6px; font-size: 0.85em;">
-                        <div style="display: flex; align-items: center; gap: 8px;">
-                            <div style="width: 16px; height: 16px; background: #440154; border-radius: 2px;"></div>
-                            <span>Decline</span>
-                        </div>
-                        <div style="display: flex; align-items: center; gap: 8px;">
-                            <div style="width: 16px; height: 16px; background: #31688e; border-radius: 2px;"></div>
-                            <span>Stable</span>
-                        </div>
-                        <div style="display: flex; align-items: center; gap: 8px;">
-                            <div style="width: 16px; height: 16px; background: #35b779; border-radius: 2px;"></div>
-                            <span>Moderate</span>
-                        </div>
-                        <div style="display: flex; align-items: center; gap: 8px;">
-                            <div style="width: 16px; height: 16px; background: #fde724; border-radius: 2px;"></div>
-                            <span>Strong</span>
-                        </div>
+                    <div style="display: flex; align-items: center; gap: 6px;">
+                        <div style="width: 12px; height: 12px; background: #440154; border-radius: 2px;"></div>
+                        <span style="font-size: 0.75em;">Decline</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 6px;">
+                        <div style="width: 12px; height: 12px; background: #31688e; border-radius: 2px;"></div>
+                        <span style="font-size: 0.75em;">Stable</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 6px;">
+                        <div style="width: 12px; height: 12px; background: #35b779; border-radius: 2px;"></div>
+                        <span style="font-size: 0.75em;">Moderate</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 6px;">
+                        <div style="width: 12px; height: 12px; background: #fde724; border-radius: 2px;"></div>
+                        <span style="font-size: 0.75em;">Strong</span>
                     </div>
                 `;
             } else {
