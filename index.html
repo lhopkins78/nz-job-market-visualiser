@@ -497,8 +497,7 @@
             };
             
             const root = d3.hierarchy(hierarchyData)
-                .sum(d => d.employment || 0)
-                .sort((a, b) => b.value - a.value);
+                .sum(d => d.employment || 0);
             
             const treemap = d3.treemap()
                 .size([width, height])
