@@ -545,9 +545,9 @@
                 .attr('x', d => d.x0 + (d.x1 - d.x0) / 2)
                 .attr('y', d => d.y0 + 16)
                 .attr('text-anchor', 'middle')
+                .attr('dominant-baseline', 'middle')
                 .style('font-size', '11px')
                 .style('fill', '#6b7280')
-                .style('text-shadow', 'none')
                 .style('font-weight', '600')
                 .text(d => d.data.name);
             
